@@ -1,3 +1,7 @@
-[gd_scene format=3 uid="uid://c0thgssmjabqq"]
+[gd_scene load_steps=2 format=3 uid="uid://c0thgssmjabqq"]
+
+[ext_resource type="PackedScene" uid="uid://chiicbhd15pwb" path="res://Art/BarrisRouille/Barrel.glb" id="1_8dgnw"]
 
 [node name="Test" type="Node3D"]
+
+[node name="Barrel" parent="." instance=ExtResource("1_8dgnw")]
