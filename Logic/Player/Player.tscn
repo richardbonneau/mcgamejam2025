@@ -1,6 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://e0aagwsaio3w"]
+[gd_scene load_steps=8 format=3 uid="uid://e0aagwsaio3w"]
 
 [ext_resource type="Script" path="res://Logic/Player/player.gd" id="1_nef7y"]
+[ext_resource type="Script" path="res://Logic/Player/attack.gd" id="2_lkxpm"]
+[ext_resource type="PackedScene" uid="uid://dtaqicoopkopf" path="res://Logic/Player/Projectiles/Torpedo/Torpedo.tscn" id="3_4lfv1"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_dfuio"]
 
@@ -27,3 +29,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_fngl6")
 transform = Transform3D(0.2, 0, 0, 0, -0.0114048, 0.199675, 0, -0.199675, -0.0114048, 0, -0.060369, 0.535777)
 mesh = SubResource("CylinderMesh_sbiea")
 surface_material_override/0 = SubResource("StandardMaterial3D_fngl6")
+
+[node name="Attack" type="Node3D" parent="."]
+script = ExtResource("2_lkxpm")
+torpedo_scene = ExtResource("3_4lfv1")
