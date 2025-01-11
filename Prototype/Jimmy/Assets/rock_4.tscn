@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bh5q6rxwsnrt1"]
+
+[ext_resource type="PackedScene" uid="uid://duuae4kw5617f" path="res://Art/Rocky 2/Rock4.glb" id="1_wvxx4"]
+
+[node name="Rock4" instance=ExtResource("1_wvxx4")]
