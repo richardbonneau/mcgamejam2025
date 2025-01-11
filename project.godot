@@ -18,3 +18,4 @@ config/icon="res://icon.svg"
 [autoload]
 
 Health="*res://Logic/Singleton/Health.gd"
+Scoreboard="*res://Logic/Singleton/Scoreboard.gd"

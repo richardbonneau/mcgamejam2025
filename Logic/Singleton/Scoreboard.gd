@@ -3,6 +3,7 @@ extends Node
 signal player_scored(playerIndex: int, points: int)
 signal game_over(winnerIndex: int)
 signal restart_game()
+signal update_scoreboard(scores: Array)
 
 @export var MAX_SCORE = 3;
 var players_score = [0, 0]
@@ -19,8 +20,11 @@ func _process(delta: float) -> void:
 
 func initializeScoreboard():
 	players_score = [0, 0];
-
+	update_scoreboard.emit(players_score)
+	
 func compileScore(playerIndex: int, points: int):
 	players_score[playerIndex] += points;
 	if (players_score[playerIndex] >= MAX_SCORE):
 		game_over.emit(playerIndex)
+	update_scoreboard.emit(players_score)
+	
