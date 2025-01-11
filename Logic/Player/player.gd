@@ -35,7 +35,7 @@ func _physics_process(delta):
 		input_dir.x = Input.get_axis("ui_left", "ui_right")
 		input_dir.y = Input.get_axis("ui_up", "ui_down")
 		input_dir = input_dir.normalized()
-	rotation.y = -PI/2  # Start facing right
+	#rotation.y = -PI/2  # Start facing right
 	# Ensure movement point exists
 	
 	if not movement_point:
