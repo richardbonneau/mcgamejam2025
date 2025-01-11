@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckpt3vgh5k43y"]
+
+[ext_resource type="Script" path="res://Logic/UI/MainMenu.gd" id="1_dxvyb"]
+
+[node name="MainMenu" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 120
+theme_override_constants/margin_bottom = 80
+script = ExtResource("1_dxvyb")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 45
+text = "Deep Sea Conflicts"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 25
+text = "Start"
+
+[connection signal="pressed" from="Button" to="." method="_on_start_pressed"]
