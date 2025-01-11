@@ -2,14 +2,16 @@
 
 [ext_resource type="PackedScene" uid="uid://e0aagwsaio3w" path="res://Logic/Player/Player.tscn" id="1_lgkyp"]
 [ext_resource type="Script" path="res://Logic/Input/InputManager.gd" id="1_phsoq"]
+[ext_resource type="PackedScene" uid="uid://lerb8ge4j60o" path="res://Logic/Treasure/Spawner/TreasureSpawner.tscn" id="2_2gudo"]
 [ext_resource type="Script" path="res://Logic/UI/UIManager.gd" id="2_k6y41"]
-[ext_resource type="PackedScene" uid="uid://c3xpbaain8row" path="res://Logic/Treasure/Treasure.tscn" id="3_1they"]
 [ext_resource type="PackedScene" uid="uid://u2qcjsm1xetx" path="res://Logic/Goal/GoalZone.tscn" id="5_67146"]
 
 [sub_resource type="Environment" id="Environment_styi5"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_phsoq")
+
+[node name="TreasureSpawner" parent="." instance=ExtResource("2_2gudo")]
 
 [node name="Environement" type="Node" parent="."]
 
@@ -32,18 +34,6 @@ motion_mode = 1
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 0)
 motion_mode = 1
 player_index = 1
-
-[node name="Treasure" parent="." instance=ExtResource("3_1they")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
-
-[node name="Treasure2" parent="." instance=ExtResource("3_1they")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, -4, 0)
-
-[node name="Treasure3" parent="." instance=ExtResource("3_1they")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -4, 0)
-
-[node name="Treasure4" parent="." instance=ExtResource("3_1they")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 12, 0)
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

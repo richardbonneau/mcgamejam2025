@@ -1,4 +1,4 @@
-extends Node
+extends CharacterBody3D
 class_name Treasure
 
 @export var weight: float = 10
