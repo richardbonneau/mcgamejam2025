@@ -27,6 +27,7 @@ func _ready():
 	
 	__spawn()
 
+
 func _physics_process(delta):
 	if (!dead):
 		# Get input direction (only X and Y)
@@ -36,13 +37,12 @@ func _physics_process(delta):
 		input_dir = input_dir.normalized()
 	rotation.y = -PI/2  # Start facing right
 	# Ensure movement point exists
+	
 	if not movement_point:
 		push_error("Movement point not assigned!")
 		return
 	# Initialize movement point position
 	update_movement_point_position(Vector2.RIGHT)
-
-func _physics_process(delta):
 	# Get input direction using the left stick
 	var input_dir = Vector3.ZERO
 	input_dir.x = Input.get_axis("l_stick_left", "l_stick_right")
