@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Logic/Player/player.gd" id="1_nef7y"]
 [ext_resource type="Script" path="res://Logic/Player/attack.gd" id="2_lkxpm"]
 [ext_resource type="PackedScene" uid="uid://dtaqicoopkopf" path="res://Logic/Player/Projectiles/Torpedo/Torpedo.tscn" id="3_4lfv1"]
-[ext_resource type="PackedScene" uid="uid://cee4hlactogu4" path="res://Art/NEW NEW SUBMARINE/GREENDSUBMARINE.glb" id="4_60754"]
+[ext_resource type="PackedScene" uid="uid://dbkrm4gcsl4p1" path="res://Art/NEW NEW SUBMARINE/GREENDSUBMARINE.glb" id="4_60754"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_dfuio"]
 
@@ -67,3 +67,4 @@ transform = Transform3D(4.98097, 0.435778, -1.90485e-08, 0, -2.18557e-07, -5, -0
 shape = SubResource("CapsuleShape3D_gahl7")
 
 [node name="GREENDSUBMARINE" parent="." instance=ExtResource("4_60754")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
