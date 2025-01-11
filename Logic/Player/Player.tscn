@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://e0aagwsaio3w"]
+[gd_scene load_steps=14 format=3 uid="uid://e0aagwsaio3w"]
 
 [ext_resource type="Script" path="res://Logic/Player/player.gd" id="1_nef7y"]
 [ext_resource type="Script" path="res://Logic/Player/attack.gd" id="2_lkxpm"]
 [ext_resource type="PackedScene" uid="uid://dtaqicoopkopf" path="res://Logic/Player/Projectiles/Torpedo/Torpedo.tscn" id="3_4lfv1"]
+[ext_resource type="PackedScene" uid="uid://cee4hlactogu4" path="res://Art/NEW NEW SUBMARINE/GREENDSUBMARINE.glb" id="4_60754"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_dfuio"]
 
@@ -31,6 +32,7 @@ movement_point = NodePath("MovementPoint")
 
 [node name="Submarine" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+visible = false
 mesh = SubResource("CapsuleMesh_dfuio")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Submarine"]
@@ -61,5 +63,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_m3rs1")
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(0.996195, 0.0871557, -3.8097e-09, 0, -4.37114e-08, -1, -0.0871557, 0.996195, -4.35451e-08, 0, 0, 0)
+transform = Transform3D(4.98097, 0.435778, -1.90485e-08, 0, -2.18557e-07, -5, -0.435778, 4.98097, -2.17725e-07, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_gahl7")
+
+[node name="GREENDSUBMARINE" parent="." instance=ExtResource("4_60754")]
