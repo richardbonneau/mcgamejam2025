@@ -15,7 +15,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	TakeDamage.emit(0, 10) #for tests
+	TakeDamage.emit(0, 1) #for tests
 
 func on_player_damaged(playerIndex: int, damageTaken: int):
 	if (playerHealth[playerIndex] <= 0):
@@ -28,3 +28,4 @@ func on_player_healed(playerIndex: int, damageHealed: int):
 	playerHealth[playerIndex] += damageHealed
 	if (playerHealth[playerIndex] > MAX_HEALTH):
 		playerHealth[playerIndex] = MAX_HEALTH
+		
