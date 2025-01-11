@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dq22k58piaiqf"]
+[gd_scene load_steps=6 format=3 uid="uid://dq22k58piaiqf"]
 
 [ext_resource type="PackedScene" uid="uid://e0aagwsaio3w" path="res://Logic/Player/Player.tscn" id="1_lgkyp"]
 [ext_resource type="Script" path="res://Logic/Input/InputManager.gd" id="1_phsoq"]
 [ext_resource type="Script" path="res://Logic/UI/UIManager.gd" id="2_k6y41"]
+[ext_resource type="PackedScene" uid="uid://c3xpbaain8row" path="res://Logic/Treasure/Treasure.tscn" id="3_1they"]
 
 [sub_resource type="Environment" id="Environment_styi5"]
 
@@ -30,6 +31,9 @@ motion_mode = 1
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 0)
 motion_mode = 1
 player_index = 1
+
+[node name="Treasure" parent="." instance=ExtResource("3_1they")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

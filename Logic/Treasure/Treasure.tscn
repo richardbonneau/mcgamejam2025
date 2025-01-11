@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3xpbaain8row"]
+
+[ext_resource type="Script" path="res://Logic/Treasure/Treasure.gd" id="1_wkh0g"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_67g55"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_fnjhe"]
+
+[node name="Treasure" type="CharacterBody3D"]
+script = ExtResource("1_wkh0g")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_67g55")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_fnjhe")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
