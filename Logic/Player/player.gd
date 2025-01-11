@@ -106,7 +106,6 @@ func _player_died(playerIndex: int):
 		print("Player "+str(player_index)+" has died.")
 		#TODO : trigger death animation?
 		hide() #Hides body from view
-		#TODO : Disable collisions
 		await get_tree().create_timer(respawn_time).timeout
 		_respawn()
 
@@ -114,18 +113,13 @@ func __spawn():
 	#Stops movement
 	velocity.x = 0;
 	velocity.y = 0;
-	
 	#TODO : Spawn (initial position in the scene, export x + y?)
 	position = initial_position
-	
 	# Player "0" will start facing right
 	# Player "1" will start facing left
 	rotation.y = (-1 ** (player_index+1)) * PI/2 
-	
 	#Sets health
 	Health.HealDamage.emit(player_index, Health.MAX_HEALTH)
-	
-	#TODO : Enable collisions
 	
 
 func _respawn():
