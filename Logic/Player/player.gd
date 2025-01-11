@@ -3,12 +3,15 @@ extends CharacterBody3D
 @export var speed = 100.0  # Maximum movement speed
 @export var acceleration = 100.0  # How quickly to reach max speed
 @export var drag_factor = 0.92  # Underwater drag (lower = more drag)
+@export var rotation_speed = 3.0  # Speed of rotation (in radians per second)
 
 # Store initial Z position
 var initial_z = 0.0
+var target_rotation = -PI/2  # -PI/2 for right, PI/2 for left
 
 func _ready():
 	initial_z = position.z
+	rotation.y = -PI/2  # Start facing right
 
 func _physics_process(delta):
 	# Get input direction (only X and Y)
@@ -35,6 +38,15 @@ func _physics_process(delta):
 	
 	# Keep Z velocity at 0
 	velocity.z = 0
+	
+	# Update target rotation based on movement direction
+	if abs(velocity.x) > 0.1:  # Only change target when there's significant horizontal movement
+		target_rotation = -PI/2 if velocity.x > 0 else PI/2
+	
+	# Smoothly interpolate current rotation to target
+	if abs(rotation.y - target_rotation) > 0.01:  # If we're not already at target
+		var shortest_angle = fposmod(target_rotation - rotation.y + PI, PI * 2) - PI
+		rotation.y += sign(shortest_angle) * min(rotation_speed * delta, abs(shortest_angle))
 	
 	move_and_slide()
 	
