@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+@export var player_index:int = 0
+
 @export var speed = 100.0  # Maximum movement speed
 @export var acceleration = 100.0  # How quickly to reach max speed
 @export var drag_factor = 0.92  # Underwater drag (lower = more drag)
@@ -9,7 +11,10 @@ extends CharacterBody3D
 var initial_z = 0.0
 var target_rotation = -PI/2  # -PI/2 for right, PI/2 for left
 
+@export var respawn_time = 3.0
+
 func _ready():
+	Health.PlayerDied.connect(_player_died)
 	initial_z = position.z
 	rotation.y = -PI/2  # Start facing right
 
@@ -52,3 +57,16 @@ func _physics_process(delta):
 	
 	# Lock Z position
 	position.z = initial_z
+
+func _player_died(playerIndex: int):
+	if (playerIndex == player_index):
+		print("Player "+str(player_index)+" has died.")
+		#TODO : trigger death animation?
+		#TODO : body should disappear
+		await get_tree().create_timer(respawn_time).timeout
+		_respawn()
+
+func _respawn():
+	Health.HealDamage.emit(player_index, Health.MAX_HEALTH)
+	#TODO : body should reappear
+	print("Player "+str(player_index)+" has respawned.")

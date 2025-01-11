@@ -15,9 +15,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	TakeDamage.emit(0, 10) #for tests
 
 func on_player_damaged(playerIndex: int, damageTaken: int):
+	if (playerHealth[playerIndex] <= 0):
+		return #Already dead
 	playerHealth[playerIndex] -= damageTaken;
 	if (playerHealth[playerIndex] <= 0):
 		PlayerDied.emit(playerIndex);

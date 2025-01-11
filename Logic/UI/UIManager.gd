@@ -8,7 +8,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	Scoreboard.player_scored.emit(0, 1)
+	pass
 
 func updateScoreboard(scores: Array):
 	print("hello" + " " +str(scores[0]))
