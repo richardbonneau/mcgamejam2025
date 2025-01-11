@@ -76,19 +76,19 @@ func _player_died(playerIndex: int):
 		_respawn()
 
 func __spawn():
-	# Player "0" will start facing right
-	# Player "1" will start facing left
-	rotation.y = (-1 ** (player_index+1)) * PI/2 
-	
 	#Stops movement
 	velocity.x = 0;
 	velocity.y = 0;
 	
-	#Sets health
-	Health.HealDamage.emit(player_index, Health.MAX_HEALTH)
-	
 	#TODO : Spawn (initial position in the scene, export x + y?)
 	position = initial_position
+	
+	# Player "0" will start facing right
+	# Player "1" will start facing left
+	rotation.y = (-1 ** (player_index+1)) * PI/2 
+	
+	#Sets health
+	Health.HealDamage.emit(player_index, Health.MAX_HEALTH)
 	
 	#TODO : Enable collisions
 	
