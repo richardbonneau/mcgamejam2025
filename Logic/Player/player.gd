@@ -15,9 +15,13 @@ var dead: bool = false
 
 @export var respawn_time = 3.0
 
+var initial_position
+
 func _ready():
 	Health.PlayerDied.connect(_player_died)
 	initial_z = position.z
+	initial_position = position
+	
 	__spawn()
 
 func _physics_process(delta):
@@ -84,7 +88,7 @@ func __spawn():
 	Health.HealDamage.emit(player_index, Health.MAX_HEALTH)
 	
 	#TODO : Spawn (initial position in the scene, export x + y?)
-	position.z = initial_z
+	position = initial_position
 	
 	#TODO : Enable collisions
 	
