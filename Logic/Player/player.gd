@@ -17,6 +17,9 @@ var orbit_angle = 0.0
 
 var dead: bool = false
 
+var cargo: Array = []
+@export var max_weight: float = 30.0
+
 @export var respawn_time = 3.0
 
 var initial_position
@@ -105,6 +108,7 @@ func _player_died(playerIndex: int):
 		dead = true
 		print("Player "+str(player_index)+" has died.")
 		#TODO : trigger death animation?
+		#TODO : drop all cargo or shuffle it on the map?
 		hide() #Hides body from view
 		await get_tree().create_timer(respawn_time).timeout
 		_respawn()
@@ -155,3 +159,13 @@ func look_at_movement_point():
 				global_position.z
 			)
 			look_at(look_target, Vector3.UP)
+
+func pickup_treasure(item: Treasure):
+	if dead: return false
+	var weight: float = item.weight
+	for treasure in cargo:
+		weight += treasure.weight
+	if weight > max_weight: return false
+	cargo.append(item.duplicate())
+	return true
+	
