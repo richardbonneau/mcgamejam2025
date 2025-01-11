@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://e0aagwsaio3w"]
+[gd_scene load_steps=12 format=3 uid="uid://e0aagwsaio3w"]
 
 [ext_resource type="Script" path="res://Logic/Player/player.gd" id="1_nef7y"]
 [ext_resource type="Script" path="res://Logic/Player/attack.gd" id="2_lkxpm"]
@@ -13,8 +13,19 @@ albedo_color = Color(0, 1, 0, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_sbiea"]
 
-[node name="Player" type="CharacterBody3D"]
+[sub_resource type="SphereMesh" id="SphereMesh_u5yw1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pirbj"]
+albedo_color = Color(1.13107e-06, 0.648771, 0.133059, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_0lfhy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m3rs1"]
+albedo_color = Color(1, 0, 0, 1)
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("movement_point")]
 script = ExtResource("1_nef7y")
+movement_point = NodePath("MovementPoint")
 
 [node name="Submarine" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
@@ -30,6 +41,17 @@ transform = Transform3D(0.2, 0, 0, 0, -0.0114048, 0.199675, 0, -0.199675, -0.011
 mesh = SubResource("CylinderMesh_sbiea")
 surface_material_override/0 = SubResource("StandardMaterial3D_fngl6")
 
-[node name="Attack" type="Node3D" parent="."]
+[node name="Attack" type="Node3D" parent="." node_paths=PackedStringArray("shooting_point")]
 script = ExtResource("2_lkxpm")
+shooting_point = NodePath("../ShootingPoint")
 torpedo_scene = ExtResource("3_4lfv1")
+
+[node name="MovementPoint" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("SphereMesh_u5yw1")
+surface_material_override/0 = SubResource("StandardMaterial3D_pirbj")
+
+[node name="ShootingPoint" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("SphereMesh_0lfhy")
+surface_material_override/0 = SubResource("StandardMaterial3D_m3rs1")

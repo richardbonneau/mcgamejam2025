@@ -14,8 +14,8 @@ func _ready() -> void:
 	HealDamage.connect(on_player_healed)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	TakeDamage.emit(0, 1) #for tests
+#func _process(delta: float) -> void:
+	#TakeDamage.emit(0, 1) #for tests
 
 func on_player_damaged(playerIndex: int, damageTaken: int):
 	if (playerHealth[playerIndex] <= 0):
