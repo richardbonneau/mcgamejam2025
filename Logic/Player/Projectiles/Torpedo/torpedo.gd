@@ -42,3 +42,4 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 		var player_hit = area.get_parent() as Player
 		if player_hit.player_index != player_id:
 			Health.TakeDamage.emit(player_hit.player_index, 15)
+	queue_free()
