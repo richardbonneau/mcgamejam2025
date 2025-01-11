@@ -1,4 +1,5 @@
 extends CharacterBody3D
+class_name Player
 
 @export var player_index:int = 0
 

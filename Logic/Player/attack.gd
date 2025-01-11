@@ -85,6 +85,7 @@ func fire_torpedo(direction: Vector2) -> void:
 	# Set torpedo's position to this spawner's global position
 	torpedo.global_position = global_position
 	torpedo.position.z = 0
+	torpedo.player_id = player_id
 	
 	# Launch the torpedo
 	torpedo.shoot(direction)
