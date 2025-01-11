@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://blx3pokghs5in"]
+
+[ext_resource type="PackedScene" uid="uid://e0aagwsaio3w" path="res://Logic/Player/Player.tscn" id="1_fm1av"]
+
+[sub_resource type="Environment" id="Environment_styi5"]
+
+[node name="Main" type="Node"]
+
+[node name="Environement" type="Node" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="Environement"]
+transform = Transform3D(0.999074, -0.0127477, 0.0410862, 0.0126021, 0.999913, 0.00379986, -0.0411311, -0.00327857, 0.999148, 0, 0, 15)
+environment = SubResource("Environment_styi5")
+current = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environement"]
+
+[node name="Player" parent="." instance=ExtResource("1_fm1av")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 0)
+motion_mode = 1
