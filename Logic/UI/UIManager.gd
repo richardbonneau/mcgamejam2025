@@ -11,5 +11,4 @@ func _process(delta: float) -> void:
 	pass
 
 func updateScoreboard(scores: Array):
-	print("hello" + " " +str(scores[0]))
 	score_label.text = str(scores[0]) + " : " + str(scores[1]);

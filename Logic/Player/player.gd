@@ -170,3 +170,7 @@ func pickup_treasure(item: Treasure):
 	cargo.append(item.duplicate())
 	return true
 	
+func unload_cargo():
+	while(cargo.size() > 0):
+		var item = cargo.pop_back()
+		Scoreboard.player_scored.emit(player_index, item.worth)
