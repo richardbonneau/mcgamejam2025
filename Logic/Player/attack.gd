@@ -9,8 +9,10 @@ extends Node3D
 var can_fire = true
 var cooldown_timer = 0.0
 var aim_line: Line2D
+var player_id: int
 
 func _ready():
+	player_id = get_parent().player_index
 	# Create aim line
 	aim_line = Line2D.new()
 	add_child(aim_line)
@@ -31,8 +33,8 @@ func _process(delta: float) -> void:
 			cooldown_timer = 0.0
 	
 	# Get input using the right stick
-	var stick_x = Input.get_axis("r_stick_left", "r_stick_right")
-	var stick_y = Input.get_axis("r_stick_up", "r_stick_down")
+	var stick_x = Input.get_axis("r_stick_left"+str(player_id), "r_stick_right"+str(player_id))
+	var stick_y = Input.get_axis("r_stick_up"+str(player_id), "r_stick_down"+str(player_id))
 	
 	# Create input vector
 	var stick_input = Vector2(stick_x, -stick_y)  # Invert Y for correct orientation
@@ -47,7 +49,7 @@ func _process(delta: float) -> void:
 		aim_line.visible = false
 	
 	# Check if R2 is pressed and we can fire
-	if Input.is_action_pressed("r2") and can_fire and stick_input.length() > min_stick_threshold:
+	if Input.is_action_pressed("r2"+str(player_id)) and can_fire and stick_input.length() > min_stick_threshold:
 		# Calculate direction from player to shooting point
 		var shoot_dir = (shooting_point.global_position - global_position)
 		shoot_dir.z = 0  # Ensure we're in 2D plane
