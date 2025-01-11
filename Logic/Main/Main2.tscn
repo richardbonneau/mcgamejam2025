@@ -1,11 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://dq22k58piaiqf"]
+[gd_scene load_steps=5 format=3 uid="uid://dq22k58piaiqf"]
 
 [ext_resource type="PackedScene" uid="uid://e0aagwsaio3w" path="res://Logic/Player/Player.tscn" id="1_lgkyp"]
+[ext_resource type="Script" path="res://Logic/Input/InputManager.gd" id="1_phsoq"]
 [ext_resource type="Script" path="res://Logic/UI/UIManager.gd" id="2_k6y41"]
 
 [sub_resource type="Environment" id="Environment_styi5"]
 
 [node name="Main" type="Node"]
+script = ExtResource("1_phsoq")
 
 [node name="Environement" type="Node" parent="."]
 
@@ -18,9 +20,16 @@ size = 29.828
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environement"]
 
-[node name="Player_0" parent="." instance=ExtResource("1_lgkyp")]
+[node name="Players" type="Node" parent="."]
+
+[node name="Player_0" parent="Players" instance=ExtResource("1_lgkyp")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 0)
 motion_mode = 1
+
+[node name="Player_1" parent="Players" instance=ExtResource("1_lgkyp")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 0)
+motion_mode = 1
+player_index = 1
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

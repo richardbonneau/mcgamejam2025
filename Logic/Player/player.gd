@@ -45,8 +45,8 @@ func _physics_process(delta):
 	update_movement_point_position(Vector2.RIGHT)
 	# Get input direction using the left stick
 	var input_dir = Vector3.ZERO
-	input_dir.x = Input.get_axis("l_stick_left", "l_stick_right")
-	input_dir.y = Input.get_axis("l_stick_up", "l_stick_down")
+	input_dir.x = Input.get_axis("l_stick_left"+str(player_index), "l_stick_right"+str(player_index))
+	input_dir.y = Input.get_axis("l_stick_up"+str(player_index), "l_stick_down"+str(player_index))
 	
 	# Create input vector
 	var stick_input = Vector2(input_dir.x, -input_dir.y)  # Invert Y for correct orientation
