@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
-@export var speed = 300.0  # Maximum movement speed
-@export var acceleration = 1000.0  # How quickly to reach max speed
+@export var speed = 100.0  # Maximum movement speed
+@export var acceleration = 100.0  # How quickly to reach max speed
 @export var drag_factor = 0.92  # Underwater drag (lower = more drag)
 
 # Store initial Z position
@@ -20,7 +20,7 @@ func _physics_process(delta):
 	# Apply acceleration in the input direction
 	if input_dir != Vector3.ZERO:
 		velocity.x += input_dir.x * acceleration * delta
-		velocity.y += input_dir.y * acceleration * delta
+		velocity.y -= input_dir.y * acceleration * delta
 		
 		# Clamp to max speed
 		var current_velocity = Vector2(velocity.x, velocity.y)
