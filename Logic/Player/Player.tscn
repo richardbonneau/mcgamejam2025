@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://e0aagwsaio3w"]
+[gd_scene load_steps=13 format=3 uid="uid://e0aagwsaio3w"]
 
 [ext_resource type="Script" path="res://Logic/Player/player.gd" id="1_nef7y"]
 [ext_resource type="Script" path="res://Logic/Player/attack.gd" id="2_lkxpm"]
@@ -22,6 +22,8 @@ albedo_color = Color(1.13107e-06, 0.648771, 0.133059, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m3rs1"]
 albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gahl7"]
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("movement_point")]
 script = ExtResource("1_nef7y")
@@ -55,3 +57,9 @@ surface_material_override/0 = SubResource("StandardMaterial3D_pirbj")
 transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("SphereMesh_0lfhy")
 surface_material_override/0 = SubResource("StandardMaterial3D_m3rs1")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(0.996195, 0.0871557, -3.8097e-09, 0, -4.37114e-08, -1, -0.0871557, 0.996195, -4.35451e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_gahl7")

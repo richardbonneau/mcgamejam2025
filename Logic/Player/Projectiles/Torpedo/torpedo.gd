@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 @export var speed = 200.0
 var direction = Vector3.ZERO
+var player_id: int
 
 func shoot(shoot_direction: Vector2):
 	# Convert the 2D direction to 3D, ignoring Z
@@ -33,6 +34,11 @@ func _physics_process(delta):
 	# Keep velocity going in the stored direction
 	velocity = direction * speed
 	move_and_slide()
-
 	# Update rotation if needed (e.g. if it might curve in the future)
 	# For a straight shot, you typically won't change direction mid-flight.
+
+func _on_area_3d_area_entered(area: Area3D) -> void:
+	if area.get_parent() is Player:
+		var player_hit = area.get_parent() as Player
+		if player_hit.player_index != player_id:
+			Health.TakeDamage.emit(player_hit.player_index, 15)
