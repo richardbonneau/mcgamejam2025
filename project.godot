@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Health="*res://Logic/Singleton/Health.gd"
+Scoreboard="*res://Logic/Singleton/Scoreboard.gd"
 
 [input]
 
@@ -48,4 +49,3 @@ r2={
 ]
 }
 Scoreboard="*res://Logic/Singleton/Scoreboard.gd"
-
