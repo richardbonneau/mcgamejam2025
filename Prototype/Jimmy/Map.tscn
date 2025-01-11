@@ -1,3 +1,63 @@
-[gd_scene format=3 uid="uid://chxxemsbwng6f"]
+[gd_scene load_steps=5 format=3 uid="uid://chxxemsbwng6f"]
+
+[ext_resource type="PackedScene" uid="uid://ymvup8jcw8wh" path="res://Prototype/Jimmy/Assets/rock_2.tscn" id="1_n6jvv"]
+[ext_resource type="PackedScene" uid="uid://32cxgwupq7tc" path="res://Prototype/Jimmy/Assets/rock_5.tscn" id="2_olhml"]
+[ext_resource type="PackedScene" uid="uid://bh5q6rxwsnrt1" path="res://Prototype/Jimmy/Assets/rock_4.tscn" id="3_i3m3f"]
+[ext_resource type="Texture2D" uid="uid://cirfb7o1dr8g" path="res://Prototype/Jimmy/Assets/deep sea conflicts.jpg" id="4_clhlr"]
 
 [node name="Map" type="Node3D"]
+
+[node name="Rock10" parent="." instance=ExtResource("1_n6jvv")]
+transform = Transform3D(-1.26564, -1.07677, -2.49774, 1.13976, 2.29142, -1.56536, 2.46964, -1.60934, -0.557616, 0, 1.48317, 8.03248)
+
+[node name="Rock23" parent="." instance=ExtResource("1_n6jvv")]
+transform = Transform3D(-1.26564, -2.15354, -2.49774, 2.16678, 2.53228, -1.64377, 1.64415, -4.99498, 0.243549, 0, 9.92544, -26.9403)
+
+[node name="Rock13" parent="." instance=ExtResource("1_n6jvv")]
+transform = Transform3D(2.24193, -2.55529, -2.10813, -2.33793, 0.582897, -3.19286, 2.34688, 3.02171, -1.16682, 0, 11.7625, -7.94394)
+
+[node name="Rock26" parent="." instance=ExtResource("1_n6jvv")]
+transform = Transform3D(2.24193, -2.55529, -2.10813, 0.0575512, 2.5752, -3.06024, 3.31216, 1.68488, 1.48012, 0, -20.0091, 15.9084)
+
+[node name="Rock7" parent="." instance=ExtResource("1_n6jvv")]
+transform = Transform3D(0.627474, 0.778638, 1.43435e-09, -0.7131, 0.57466, 0.401564, 0.312673, -0.251971, 0.915831, -0.152134, 1.33802, 4.53012)
+
+[node name="Rock3" parent="." instance=ExtResource("1_n6jvv")]
+transform = Transform3D(0.896423, 2.35616, 1.62632, 0, 1.70418, -2.46896, -2.86294, 0.737745, 0.509221, 0, -2.30588, -5.60038)
+
+[node name="Rock5" parent="." instance=ExtResource("2_olhml")]
+transform = Transform3D(-1.21515, 0.165332, -0.431368, -0.459823, -0.316062, 1.17417, 0.0444523, 1.25011, 0.353912, 0, 21.0465, -0.152782)
+
+[node name="Rock8" parent="." instance=ExtResource("2_olhml")]
+transform = Transform3D(-0.992205, 0.0178079, 0.123335, 0.00879057, 0.997273, -0.0732746, -0.124303, -0.0716193, -0.989656, 0, 4.52176, 5.57147)
+
+[node name="Rock15" parent="." instance=ExtResource("2_olhml")]
+transform = Transform3D(-3.92905, -0.186338, -0.325464, -0.522109, -0.566687, 1.90019, -0.538513, 1.90896, 0.532312, 0, 19.3426, -19.5894)
+
+[node name="Rock18" parent="." instance=ExtResource("2_olhml")]
+transform = Transform3D(-1.44014, 0.158993, -0.388229, 0.164601, 1.49094, 0, 0.385884, -0.042602, -1.44889, 0, -20.7229, 0.0178089)
+
+[node name="Rock4" parent="." instance=ExtResource("3_i3m3f")]
+transform = Transform3D(1.19735, 6.14463e-08, 2.7507, 0.565655, 2.93588, -0.246224, -2.69191, 0.616922, 1.17176, 0, 0.299698, 9.43856)
+
+[node name="Rock19" parent="." instance=ExtResource("3_i3m3f")]
+transform = Transform3D(1.39691, 1.46372e-07, 3.20915, 0.489681, 3.45901, -0.213153, -3.17157, 0.534062, 1.38055, 0, 0.0945458, -9.46744)
+
+[node name="Rock20" parent="." instance=ExtResource("3_i3m3f")]
+transform = Transform3D(-1.88657, 0.0854875, -2.94678, 2.4538, 1.98457, -1.51339, 1.63392, -2.8817, -1.12966, 0, -20.6923, -18.1403)
+
+[node name="Rock17" parent="." instance=ExtResource("3_i3m3f")]
+transform = Transform3D(3.71242, 2.86808, 1.72976, 3.34579, -3.05705, -2.1119, -0.153826, 2.72553, -4.18901, 0, -10.1608, 26.3508)
+
+[node name="Rock16" parent="." instance=ExtResource("3_i3m3f")]
+transform = Transform3D(-1.54949, 0.780639, -3.60412, 1.71634, 3.61278, 0.0446251, 3.26394, -1.52919, -1.73445, 0, -11.2177, 7.16282)
+
+[node name="Rock11" parent="." instance=ExtResource("3_i3m3f")]
+transform = Transform3D(1.59647, -5.96046e-08, 3.6676, 2.49121, -2.93563, -1.0844, 2.69168, 2.717, -1.17166, 0, -11.9859, -9.64097)
+
+[node name="Rock9" parent="." instance=ExtResource("3_i3m3f")]
+transform = Transform3D(-1.54386, 1.96575, 1.65901, -2.33229, -0.253725, -1.86977, -1.08486, -2.25199, 1.6588, 0, 20.8927, 17.2001)
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, 0, 0, 0.05)
+texture = ExtResource("4_clhlr")
