@@ -109,6 +109,7 @@ func _player_died(playerIndex: int):
 		print("Player "+str(player_index)+" has died.")
 		#TODO : trigger death animation?
 		#TODO : drop all cargo or shuffle it on the map?
+		cargo = []
 		hide() #Hides body from view
 		await get_tree().create_timer(respawn_time).timeout
 		_respawn()
