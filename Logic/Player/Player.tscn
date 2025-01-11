@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://e0aagwsaio3w"]
+
+[ext_resource type="Script" path="res://Logic/Player/player.gd" id="1_nef7y"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_dfuio"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7mghd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fngl6"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_sbiea"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_nef7y")
+
+[node name="Submarine" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_dfuio")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Submarine"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, -0.99974, -4.37e-08)
+mesh = SubResource("BoxMesh_7mghd")
+surface_material_override/0 = SubResource("StandardMaterial3D_fngl6")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Submarine"]
+transform = Transform3D(0.2, 0, 0, 0, -0.0114048, 0.199675, 0, -0.199675, -0.0114048, 0, -0.060369, 0.535777)
+mesh = SubResource("CylinderMesh_sbiea")
+surface_material_override/0 = SubResource("StandardMaterial3D_fngl6")
