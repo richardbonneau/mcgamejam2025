@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ckpt3vgh5k43y"]
 
 [ext_resource type="Script" path="res://Logic/UI/MainMenu.gd" id="1_dxvyb"]
-[ext_resource type="Texture2D" uid="uid://bvyyy6kffwgk7" path="res://Scenes/PHOTOMENUFINAL.png" id="2_4wkrr"]
+[ext_resource type="Texture2D" uid="uid://bate2316q0rp8" path="res://NEW MENU.jpg" id="2_eadyx"]
 
 [node name="MainMenu" type="MarginContainer"]
 anchors_preset = 15
@@ -17,9 +17,10 @@ script = ExtResource("1_dxvyb")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2
-texture = ExtResource("2_4wkrr")
+texture = ExtResource("2_eadyx")
 
 [node name="Label" type="Label" parent="."]
+visible = false
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 45
