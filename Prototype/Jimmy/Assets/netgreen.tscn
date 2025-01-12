@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://buktp1fu44j8a"]
+
+[ext_resource type="PackedScene" uid="uid://dlixuao7axxk4" path="res://Art/NET/NETGREEN.glb" id="1_t6xgy"]
+
+[node name="NETGREEN" instance=ExtResource("1_t6xgy")]

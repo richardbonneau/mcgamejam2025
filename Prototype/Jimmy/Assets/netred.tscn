@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://ck5hy815kdkt4"]
+
+[ext_resource type="PackedScene" uid="uid://jiaqo3iiphl8" path="res://Art/NET/NETRED.glb" id="1_ol21b"]
+
+[node name="NETRED" instance=ExtResource("1_ol21b")]
