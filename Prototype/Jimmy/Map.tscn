@@ -19,7 +19,8 @@
 [node name="Map" type="Node3D"]
 
 [node name="Rock10" parent="." instance=ExtResource("1_n6jvv")]
-transform = Transform3D(-1.26564, -1.07677, -2.49774, 1.13976, 2.29142, -1.56536, 2.46964, -1.60934, -0.557616, 0, 1.48317, 8.03248)
+transform = Transform3D(0.152436, 2.83242, -0.976808, -2.77388, 0.503096, 1.02592, 1.13243, 0.851047, 2.64449, 0, 1.48317, 8.03248)
+visible = false
 
 [node name="Rock23" parent="." instance=ExtResource("1_n6jvv")]
 transform = Transform3D(-1.26564, -2.15354, -2.49774, 1.98856, 3.02656, -1.66001, 1.85574, -4.71192, 0.0753197, 0, 15.2467, -27.1268)
@@ -41,6 +42,9 @@ transform = Transform3D(-1.21515, 0.165332, -0.431368, -0.459823, -0.316062, 1.1
 
 [node name="Rock8" parent="." instance=ExtResource("2_olhml")]
 transform = Transform3D(-0.992205, 0.0178079, 0.123335, 0.00879057, 0.997273, -0.0732746, -0.124303, -0.0716193, -0.989656, 0, 0.362511, 9.80345)
+
+[node name="Rock14" parent="." instance=ExtResource("2_olhml")]
+transform = Transform3D(-0.649453, 0.754955, 0.0908512, -0.123104, 0.0135123, -0.992302, -0.750371, -0.655637, 0.0841627, 0, 1.26654, 7.53151)
 
 [node name="Rock15" parent="." instance=ExtResource("2_olhml")]
 transform = Transform3D(1.9126, 0.109599, 0.574399, 0.519083, 0.586383, -1.8403, -0.269256, 1.90896, 0.532314, 0, 18.6908, -11.9346)
