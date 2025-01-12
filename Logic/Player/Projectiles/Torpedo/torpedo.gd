@@ -4,6 +4,8 @@ extends CharacterBody3D
 var direction = Vector3.ZERO
 var player_id: int
 
+@onready var explosion_effect = preload("res://Logic/Player/Projectiles/Torpedo/explosion.tscn")
+
 func shoot(shoot_direction: Vector2):
 	if player_id % 2 == 0: $MISSILEGREEN.show()
 	elif player_id % 2 == 1: $MISSILERED.show()
@@ -29,7 +31,7 @@ func shoot(shoot_direction: Vector2):
 	# you might rotate around Y or X and offset accordingly. 
 	# Adjust as needed based on your model’s default orientation.
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	# Because it's side view, make sure it stays at Z=0
 	position.z = 0
 
@@ -45,4 +47,10 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 		if player_hit.dead: return #Don't register collision with dead players
 		if player_hit.player_index == player_id: return
 		Health.TakeDamage.emit(player_hit.player_index, 50)
+		
+	# Spawn explosion effect at torpedo's position
+	var explosion = explosion_effect.instantiate()
+	get_parent().add_child(explosion)
+	explosion.global_position = global_position
+	
 	queue_free()

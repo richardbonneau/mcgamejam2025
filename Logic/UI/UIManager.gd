@@ -6,9 +6,6 @@ extends Node
 func _ready() -> void:
 	Scoreboard.update_scoreboard.connect(updateScoreboard)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func updateScoreboard(scores: Array):
 	score_label.text = str(scores[0]) + " : " + str(scores[1]);

@@ -23,7 +23,3 @@ func _duplicate_action(base_action: String, controllerIndex:int):
 			new_event.device = controllerIndex;
 			
 			InputMap.action_add_event(new_action, new_event)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

@@ -14,9 +14,6 @@ func _ready() -> void:
 	player_scored.connect(compileScore)
 	restart_game.connect(initializeScoreboard)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func initializeScoreboard():
 	players_score = [0, 0];

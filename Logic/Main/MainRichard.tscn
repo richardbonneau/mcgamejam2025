@@ -18,10 +18,10 @@ size = Vector2(10, 10)
 render_priority = 0
 shader = ExtResource("4_klmji")
 shader_parameter/tint = Color(1, 1, 1, 0.529412)
-shader_parameter/wave_speed = 1.0
+shader_parameter/wave_speed = 3.0
 shader_parameter/wave_freq = 10.0
 shader_parameter/wave_width = 1.0
-shader_parameter/blur = 2.0
+shader_parameter/blur = -0.55
 
 [node name="Main" type="Node"]
 script = ExtResource("1_varub")
@@ -45,6 +45,7 @@ light_energy = 1.66
 
 [node name="UnderwaterEffect" type="MeshInstance3D" parent="Environement"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 36.3361)
+visible = false
 mesh = SubResource("PlaneMesh_kfbca")
 surface_material_override/0 = SubResource("ShaderMaterial_y1dvy")
 
@@ -89,7 +90,6 @@ anchor_right = 0.0
 offset_left = 180.0
 offset_right = 180.0
 grow_horizontal = 1
-border_color = Color(1, 1, 1, 1)
 
 [node name="HealthBar2" parent="UI" instance=ExtResource("7_wseut")]
 layout_mode = 1
