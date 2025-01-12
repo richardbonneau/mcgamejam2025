@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c3xpbaain8row"]
 
 [ext_resource type="Script" path="res://Logic/Treasure/Treasure.gd" id="1_wkh0g"]
-[ext_resource type="PackedScene" uid="uid://bbx15r1i1autr" path="res://Art/ChestTresor/CHEST.glb" id="2_pop2r"]
+[ext_resource type="PackedScene" uid="uid://citomcamet3rq" path="res://Art/ChestTresor/CHEST.glb" id="2_pop2r"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_67g55"]
 
