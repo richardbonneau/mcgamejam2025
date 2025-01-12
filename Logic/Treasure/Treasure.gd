@@ -5,8 +5,6 @@ class_name Treasure
 @export var worth: int = 1
 @export var type: String = "idk"
 
-
-
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.get_parent() is Player:
 		var player_hit = area.get_parent() as Player
@@ -16,4 +14,3 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 		else:
 			#TODO : play a sound/highlight in red?
 			pass
-	

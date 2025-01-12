@@ -13,32 +13,37 @@ var treasure_spawn_points :Array = [
 	{"x":5, "y":12, "node": null}
 ]
 
-@onready var timer:Timer = $Timer
+var current_treasure = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	timer.start()
-	timer.connect("timeout", spawn)
+	# Connect to both goal zones' signals
+	for goal in get_tree().get_nodes_in_group("goals"):
+		goal.connect("treasure_scored", _on_treasure_scored)
 	spawn()
 
-
 func spawn():
-	var initial_index = randi_range(0, treasure_spawn_points.size()-1)
-	var index = initial_index
-	while true:
-		var treasure = treasure_spawn_points[index].node
-		if treasure != null && is_instance_valid(treasure):
-			break # There's a treasure there!
-		else:
-			var item = preload ("res://Logic/Treasure/Treasure.tscn")
-			var treasureInstance = item.instantiate()
-			treasureInstance.weight = 10
-			treasureInstance.worth = 1
-			treasure_spawn_points[index].node = treasureInstance
-			add_child(treasureInstance)
-			treasureInstance.position = Vector3(\
-				treasure_spawn_points[index].x, treasure_spawn_points[index].y, 1\
-			)
-			break
-		index = (index + 1) % treasure_spawn_points.size()
-		if initial_index != index: break
+	# If there's already a treasure, don't spawn another
+	if current_treasure != null && is_instance_valid(current_treasure):
+		return
+		
+	var index = randi_range(0, treasure_spawn_points.size()-1)
+	var item = preload("res://Logic/Treasure/Treasure.tscn")
+	var treasureInstance = item.instantiate()
+	treasureInstance.weight = 10
+	treasureInstance.worth = 1
+	
+	# Store reference to current treasure
+	current_treasure = treasureInstance
+	
+	add_child(treasureInstance)
+	treasureInstance.position = Vector3(
+		treasure_spawn_points[index].x, 
+		treasure_spawn_points[index].y, 
+		1
+	)
+
+func _on_treasure_scored():
+	# Wait a short delay before spawning new treasure
+	await get_tree().create_timer(0.5).timeout
+	spawn()
