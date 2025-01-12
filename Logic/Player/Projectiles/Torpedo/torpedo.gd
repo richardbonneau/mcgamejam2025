@@ -72,6 +72,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 	elif body is Player and body.player_index != player_id: explode()
 
 func explode():
+	$Explosion.play()
 	velocity = Vector3.ZERO
 	direction = Vector3.ZERO
 	set_physics_process(false)  # Stop physics processing

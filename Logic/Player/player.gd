@@ -143,6 +143,7 @@ func _player_died(playerIndex: int):
 	if (playerIndex == player_index):
 		dead = true
 		print("Player "+str(player_index)+" has died.")
+		$AudioStreamPlayer.play()
 		
 		var explosion = explosion_packed_scene.instantiate()
 		get_tree().root.add_child(explosion)

@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://e0aagwsaio3w"]
+[gd_scene load_steps=17 format=3 uid="uid://e0aagwsaio3w"]
 
 [ext_resource type="Script" path="res://Logic/Player/player.gd" id="1_nef7y"]
 [ext_resource type="Script" path="res://Logic/Player/attack.gd" id="2_lkxpm"]
 [ext_resource type="PackedScene" uid="uid://dtaqicoopkopf" path="res://Logic/Player/Projectiles/Torpedo/Torpedo.tscn" id="3_4lfv1"]
 [ext_resource type="PackedScene" uid="uid://b0fe15k8xtk1" path="res://Art/NEW NEW SUBMARINE/GREENDSUBMARINE.glb" id="4_60754"]
 [ext_resource type="PackedScene" uid="uid://dno38mwv6snwp" path="res://Art/NEW NEW SUBMARINE/REDSUBMARINE.glb" id="4_hxnnp"]
+[ext_resource type="AudioStream" uid="uid://wwo4okdag4os" path="res://Audio/player_death.wav" id="6_dtsek"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_dfuio"]
 
@@ -82,3 +83,7 @@ visible = false
 [node name="PlayerHitBox" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.782901, 0.230265)
 shape = SubResource("CapsuleShape3D_ai5ld")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_dtsek")
+volume_db = 10.92

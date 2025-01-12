@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dtaqicoopkopf"]
+[gd_scene load_steps=10 format=3 uid="uid://dtaqicoopkopf"]
 
 [ext_resource type="Script" path="res://Logic/Player/Projectiles/Torpedo/torpedo.gd" id="1_opsih"]
 [ext_resource type="PackedScene" uid="uid://cmgn1rgugj0n2" path="res://Art/Missiles/MISSILEGREEN.glb" id="2_nv4we"]
 [ext_resource type="PackedScene" uid="uid://cir8hajg7hl73" path="res://Art/Missiles/MISSILERED.glb" id="3_o8oa5"]
 [ext_resource type="PackedScene" uid="uid://b34qtttkwlin" path="res://Logic/Player/Projectiles/Torpedo/explosion.tscn" id="4_5rgdm"]
 [ext_resource type="AudioStream" uid="uid://dmdi47e1diw2v" path="res://Audio/bubble_effect_03.wav" id="5_brinw"]
+[ext_resource type="AudioStream" uid="uid://uqxwih63w5yn" path="res://Audio/torpedo_explosion.wav" id="6_0c7jw"]
 
 [sub_resource type="Curve" id="Curve_bmssd"]
 _data = [Vector2(0.263158, 0.13641), 0.0, 0.0, 0, 0, Vector2(0.747368, 0.703347), 0.0, 0.0, 0, 0]
@@ -48,6 +49,9 @@ wait_time = 2.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_brinw")
+
+[node name="Explosion" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_0c7jw")
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
