@@ -10,6 +10,7 @@ var initial_position: Vector3
 @onready var collision_shape = $Area3D
 
 func shoot(shoot_direction: Vector2, player_index: int):
+	$AudioStreamPlayer.play()
 	player_id = player_index
 	time_since_launch = 0.0
 	initial_position = position
