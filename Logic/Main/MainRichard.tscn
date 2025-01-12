@@ -69,18 +69,26 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("5_wlew8")
 
-[node name="ScoreBoardLabel" type="Label" parent="UI"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -321.5
-offset_right = 321.5
-offset_bottom = 57.0
-grow_horizontal = 2
+[node name="Score2" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 682.0
+offset_top = 21.0
+offset_right = 722.0
+offset_bottom = 66.0
 theme_override_font_sizes/font_size = 32
-text = "0 - 0"
+text = "0"
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score1" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 415.0
+offset_top = 21.0
+offset_right = 455.0
+offset_bottom = 45.0
+theme_override_font_sizes/font_size = 32
+text = "0"
+vertical_alignment = 1
 
 [node name="HealthBar" parent="UI" instance=ExtResource("7_wseut")]
 layout_mode = 1
