@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://chxxemsbwng6f"]
+[gd_scene load_steps=14 format=3 uid="uid://chxxemsbwng6f"]
 
 [ext_resource type="PackedScene" uid="uid://ymvup8jcw8wh" path="res://Prototype/Jimmy/Assets/rock_2.tscn" id="1_n6jvv"]
 [ext_resource type="PackedScene" uid="uid://32cxgwupq7tc" path="res://Prototype/Jimmy/Assets/rock_5.tscn" id="2_olhml"]
@@ -181,26 +181,11 @@ transform = Transform3D(3.06418, 2.57115, 0, -2.57115, 3.06418, 0, 0, 0, 4, 1.5,
 [node name="Corail 1" parent="." instance=ExtResource("10_djims")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -16.1592, 13.7192)
 
-[node name="Corail 2" parent="." instance=ExtResource("10_djims")]
-transform = Transform3D(0.877958, 0, 0.478738, 0, 1, 0, -0.478738, 0, 0.877958, 1.69664, -22.3349, 26.8601)
-
-[node name="Corail2" parent="." instance=ExtResource("11_l1uxv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 17.51, 28.9375)
-
 [node name="Corail4" parent="." instance=ExtResource("11_l1uxv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00839, -7.12296, 26.8627)
 
 [node name="Corail3" parent="." instance=ExtResource("11_l1uxv")]
-transform = Transform3D(-0.916733, 0, -0.399501, 0, 1, 0, 0.399501, 0, -0.916733, 0.252608, 17.51, 26.997)
+transform = Transform3D(-0.916733, 0, -0.399501, 0, 1, 0, 0.399501, 0, -0.916733, 0.252608, -8.23119, 25.8351)
 
 [node name="Corail 3" parent="." instance=ExtResource("12_d0ust")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.842899, 16.4469, 28.0723)
-
-[node name="Corail 4" parent="." instance=ExtResource("12_d0ust")]
-transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -0.232493, -22.9569, 28.5718)
-
-[node name="Plante marine 2" parent="." instance=ExtResource("13_kdouy")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 2.38409, -21.3959, 6.44648)
-
-[node name="Plante marine 3" parent="." instance=ExtResource("13_kdouy")]
-transform = Transform3D(2.89532, 0, -0.785557, 0, 3, 0, 0.785557, 0, 2.89532, 2.2748, -21.3959, -26.8716)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.842899, -10.0265, -16.1709)
