@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddrw0qnmiq7nk"]
+
+[ext_resource type="Script" path="res://UI/health_bar.gd" id="1_ygxee"]
+
+[node name="HealthBar" type="Control"]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+size_flags_horizontal = 4
+script = ExtResource("1_ygxee")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_right = 150.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 20
+
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer"]
+custom_minimum_size = Vector2(300, 30)
+layout_mode = 2
+value = 100.0
+show_percentage = false
