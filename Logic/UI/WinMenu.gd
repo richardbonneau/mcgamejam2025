@@ -15,6 +15,7 @@ func _input(event: InputEvent) -> void:
 
 func _on_restart_pressed() -> void:
 	get_tree().change_scene_to_file("res://Logic/Main/MainRichard.tscn")
+	Scoreboard.players_score = [0, 0]
 	
 func _on_mainmenu_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
