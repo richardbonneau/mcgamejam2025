@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" path="res://corail_1.tscn" id="10_djims"]
 [ext_resource type="PackedScene" path="res://corail_2.tscn" id="11_l1uxv"]
 [ext_resource type="PackedScene" path="res://corail_3.tscn" id="12_d0ust"]
-[ext_resource type="PackedScene" path="res://plante_marine_2.tscn" id="13_kdouy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h8gh6"]
 

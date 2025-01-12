@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dtaqicoopkopf"]
+[gd_scene load_steps=8 format=3 uid="uid://dtaqicoopkopf"]
 
 [ext_resource type="Script" path="res://Logic/Player/Projectiles/Torpedo/torpedo.gd" id="1_opsih"]
 [ext_resource type="PackedScene" uid="uid://cmgn1rgugj0n2" path="res://Art/Missiles/MISSILEGREEN.glb" id="2_nv4we"]
 [ext_resource type="PackedScene" uid="uid://cir8hajg7hl73" path="res://Art/Missiles/MISSILERED.glb" id="3_o8oa5"]
+[ext_resource type="PackedScene" uid="uid://b34qtttkwlin" path="res://Logic/Player/Projectiles/Torpedo/explosion.tscn" id="4_5rgdm"]
 
 [sub_resource type="Curve" id="Curve_bmssd"]
 _data = [Vector2(0.263158, 0.13641), 0.0, 0.0, 0, 0, Vector2(0.747368, 0.703347), 0.0, 0.0, 0, 0]
@@ -39,5 +40,11 @@ mesh = SubResource("CapsuleMesh_cp1hg")
 transform = Transform3D(1.31134e-08, -0.7, -4.52987e-08, -0.3, -3.0598e-08, -1.95859e-22, -1.98007e-15, 1.05697e-07, -0.3, 0.3, 0, 0)
 shape = SubResource("CylinderShape3D_ae62a")
 
+[node name="ExplosionEffect" parent="." instance=ExtResource("4_5rgdm")]
+
+[node name="ExplosionTimer" type="Timer" parent="."]
+wait_time = 2.0
+
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="timeout" from="ExplosionTimer" to="." method="_on_explosion_timer_timeout"]
