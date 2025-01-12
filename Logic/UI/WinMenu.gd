@@ -8,9 +8,10 @@ func _ready() -> void:
 		var winner = "Green" if Scoreboard.__winner == 0 else "Red"
 		$WinnerLabel.text = winner+" player has won the game!"
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _input(event: InputEvent) -> void:
+	if event is InputEventJoypadButton:
+		if event.button_index == JOY_BUTTON_A and event.pressed:
+			_on_restart_pressed()
 
 func _on_restart_pressed() -> void:
 	get_tree().change_scene_to_file("res://Logic/Main/MainRichard.tscn")
