@@ -1,45 +1,55 @@
 extends CharacterBody3D
 
-@export var speed = 10.0
+@export var base_speed = 100.0
+@export var speed_curve: Curve
 var direction = Vector3.ZERO
 var player_id: int
+var time_since_launch: float = 0.0
+var initial_position: Vector3
 
 @onready var explosion_effect = preload("res://Logic/Player/Projectiles/Torpedo/explosion.tscn")
 
 func shoot(shoot_direction: Vector2):
+	time_since_launch = 0.0
+	initial_position = position
 	if player_id % 2 == 0: $MISSILEGREEN.show()
 	elif player_id % 2 == 1: $MISSILERED.show()
-	# Convert the 2D direction to 3D, ignoring Z
-	# and store it so we can move in _physics_process
+	
 	direction = Vector3(shoot_direction.x, shoot_direction.y, 0).normalized()
 	
-	# Optional: Immediately set velocity so it moves without waiting 1 frame
-	velocity = direction * speed
+	# Initialize with minimum speed
+	if speed_curve:
+		velocity = direction * base_speed * speed_curve.sample(0.0)
+	else:
+		velocity = direction * base_speed
+		push_warning("No speed curve set for torpedo!")
 
-	# Set initial rotation so the torpedo faces “forward” in the XY plane
-	# We'll rotate around Z if it's truly a side scroller.
-	#
-	# angle in radians relative to +X is atan2(y, x)
-	# But if your 3D model is oriented differently, you might offset by ±90° (π/2).
 	var angle = atan2(direction.y, direction.x)
-	rotation.z = angle  # If the torpedo’s forward axis is +X, this usually works.
+	rotation.z = angle
+
+func _physics_process(delta):
+	if !speed_curve:
+		velocity = direction * base_speed
+		move_and_slide()
+		return
+		
+	time_since_launch += delta
+	position.z = 0  # Keep in 2D plane
 	
-	# If your model is facing “up” along +Y, for example, you might do:
-	#    rotation.z = angle - PI/2
-	#
-	# If your model is facing “into the screen” along -Z (common default),
-	# you might rotate around Y or X and offset accordingly. 
-	# Adjust as needed based on your model’s default orientation.
-
-func _physics_process(_delta):
-	# Because it's side view, make sure it stays at Z=0
-	position.z = 0
-
-	# Keep velocity going in the stored direction
-	velocity = direction * speed
+	# Calculate speed multiplier from curve (0.0 to 1.0 over 1 second)
+	var curve_time = minf(time_since_launch, 1.0)
+	var speed_multiplier = speed_curve.sample(curve_time)
+	
+	# Apply speed
+	var current_speed = base_speed * speed_multiplier
+	velocity = direction * current_speed
+	
+	# Debug print every 0.1 seconds
+	if int(time_since_launch * 10) != int((time_since_launch - delta) * 10):
+		print("Time: ", curve_time, " Speed Multiplier: ", speed_multiplier, " Current Speed: ", current_speed)
+	
 	move_and_slide()
-	# Update rotation if needed (e.g. if it might curve in the future)
-	# For a straight shot, you typically won't change direction mid-flight.
+	rotation.z = atan2(velocity.y, velocity.x)
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.get_parent() is Player:
