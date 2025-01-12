@@ -37,7 +37,7 @@ func spawn():
 			treasure_spawn_points[index].node = treasureInstance
 			add_child(treasureInstance)
 			treasureInstance.position = Vector3(\
-				treasure_spawn_points[index].x, treasure_spawn_points[index].y, 0\
+				treasure_spawn_points[index].x, treasure_spawn_points[index].y, 1\
 			)
 			break
 		index = (index + 1) % treasure_spawn_points.size()

@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://32cxgwupq7tc" path="res://Prototype/Jimmy/Assets/rock_5.tscn" id="2_olhml"]
 [ext_resource type="PackedScene" uid="uid://bh5q6rxwsnrt1" path="res://Prototype/Jimmy/Assets/rock_4.tscn" id="3_i3m3f"]
 [ext_resource type="Texture2D" uid="uid://dlyjyndps2hy8" path="res://Prototype/Jimmy/Assets/backround.jpg" id="4_ix46i"]
+<<<<<<< HEAD
 [ext_resource type="PackedScene" uid="uid://buktp1fu44j8a" path="res://Prototype/Jimmy/Assets/netgreen.tscn" id="5_a2vma"]
 [ext_resource type="PackedScene" uid="uid://ck5hy815kdkt4" path="res://Prototype/Jimmy/Assets/netred.tscn" id="6_kfe6v"]
 [ext_resource type="PackedScene" uid="uid://b5gtaejfki0pd" path="res://Prototype/Jimmy/Assets/sea_grass_final.tscn" id="7_erii2"]
@@ -13,6 +14,12 @@
 [ext_resource type="PackedScene" uid="uid://5mlr7kwumwpl" path="res://corail_2.tscn" id="11_l1uxv"]
 [ext_resource type="PackedScene" uid="uid://b1er5a5vqv2cx" path="res://corail_3.tscn" id="12_d0ust"]
 [ext_resource type="PackedScene" uid="uid://jrbpupe7l52v" path="res://plante_marine_2.tscn" id="13_kdouy"]
+=======
+[ext_resource type="PackedScene" path="res://Prototype/Jimmy/Assets/netgreen.tscn" id="5_a2vma"]
+[ext_resource type="PackedScene" path="res://Prototype/Jimmy/Assets/netred.tscn" id="6_kfe6v"]
+[ext_resource type="PackedScene" path="res://Prototype/Jimmy/Assets/sea_grass_final.tscn" id="7_erii2"]
+[ext_resource type="PackedScene" path="res://Prototype/Jimmy/Assets/crate.tscn" id="8_kj0dn"]
+>>>>>>> af2661182aacc26b945297294eb0594e5b7dd872
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h8gh6"]
 

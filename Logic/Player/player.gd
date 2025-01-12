@@ -5,7 +5,7 @@ class_name Player
 
 @export var movement_point:Node3D
 @export var orbit_radius = 2.0  # Distance from player
-@export var speed = 100.0  # Maximum movement speed
+@export var speed = 20  # Maximum movement speed
 @export var acceleration = 100.0  # How quickly to reach max speed
 @export var drag_factor = 0.92  # Underwater drag (lower = more drag)
 @export var rotation_speed = 3.0  # Speed of rotation (in radians per second)
@@ -28,20 +28,13 @@ func _ready():
 	Health.PlayerDied.connect(_player_died)
 	initial_z = position.z
 	initial_position = position
-	
+	if player_index % 2 == 0: $GREENDSUBMARINE.show()
+	elif player_index % 2 == 1: $REDSUBMARINE.show()
 	__spawn()
 
 
 func _physics_process(delta):
-	if (!dead):
-		# Get input direction (only X and Y)
-		var input_dir = Vector3.ZERO
-		input_dir.x = Input.get_axis("ui_left", "ui_right")
-		input_dir.y = Input.get_axis("ui_up", "ui_down")
-		input_dir = input_dir.normalized()
-	#rotation.y = -PI/2  # Start facing right
 	# Ensure movement point exists
-	
 	if not movement_point:
 		push_error("Movement point not assigned!")
 		return

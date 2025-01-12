@@ -1,10 +1,12 @@
 extends CharacterBody3D
 
-@export var speed = 200.0
+@export var speed = 10.0
 var direction = Vector3.ZERO
 var player_id: int
 
 func shoot(shoot_direction: Vector2):
+	if player_id % 2 == 0: $MISSILEGREEN.show()
+	elif player_id % 2 == 1: $MISSILERED.show()
 	# Convert the 2D direction to 3D, ignoring Z
 	# and store it so we can move in _physics_process
 	direction = Vector3(shoot_direction.x, shoot_direction.y, 0).normalized()
@@ -42,5 +44,5 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 		var player_hit = area.get_parent() as Player
 		if player_hit.dead: return #Don't register collision with dead players
 		if player_hit.player_index == player_id: return
-		Health.TakeDamage.emit(player_hit.player_index, 15)
+		Health.TakeDamage.emit(player_hit.player_index, 50)
 	queue_free()

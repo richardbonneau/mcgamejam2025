@@ -9,10 +9,10 @@ extends Node3D
 var can_fire = true
 var cooldown_timer = 0.0
 var aim_line: Line2D
-var player_id: int
+var playerInstance: Player
 
 func _ready():
-	player_id = get_parent().player_index
+	playerInstance = get_parent()
 	# Create aim line
 	aim_line = Line2D.new()
 	add_child(aim_line)
@@ -33,8 +33,8 @@ func _process(delta: float) -> void:
 			cooldown_timer = 0.0
 	
 	# Get input using the right stick
-	var stick_x = Input.get_axis("r_stick_left"+str(player_id), "r_stick_right"+str(player_id))
-	var stick_y = Input.get_axis("r_stick_up"+str(player_id), "r_stick_down"+str(player_id))
+	var stick_x = Input.get_axis("r_stick_left"+str(playerInstance.player_index), "r_stick_right"+str(playerInstance.player_index))
+	var stick_y = Input.get_axis("r_stick_up"+str(playerInstance.player_index), "r_stick_down"+str(playerInstance.player_index))
 	
 	# Create input vector
 	var stick_input = Vector2(stick_x, -stick_y)  # Invert Y for correct orientation
@@ -49,7 +49,7 @@ func _process(delta: float) -> void:
 		aim_line.visible = false
 	
 	# Check if R2 is pressed and we can fire
-	if Input.is_action_pressed("r2"+str(player_id)) and can_fire and stick_input.length() > min_stick_threshold:
+	if (!playerInstance.dead) and Input.is_action_pressed("r2"+str(playerInstance.player_index)) and can_fire and stick_input.length() > min_stick_threshold:
 		# Calculate direction from player to shooting point
 		var shoot_dir = (shooting_point.global_position - global_position)
 		shoot_dir.z = 0  # Ensure we're in 2D plane
@@ -85,7 +85,7 @@ func fire_torpedo(direction: Vector2) -> void:
 	# Set torpedo's position to this spawner's global position
 	torpedo.global_position = global_position
 	torpedo.position.z = 0
-	torpedo.player_id = player_id
+	torpedo.player_id = playerInstance.player_index
 	
 	# Launch the torpedo
 	torpedo.shoot(direction)

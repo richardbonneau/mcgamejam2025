@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dq22k58piaiqf"]
+[gd_scene load_steps=8 format=3 uid="uid://dq22k58piaiqf"]
 
 [ext_resource type="PackedScene" uid="uid://e0aagwsaio3w" path="res://Logic/Player/Player.tscn" id="1_lgkyp"]
 [ext_resource type="Script" path="res://Logic/Input/InputManager.gd" id="1_phsoq"]
 [ext_resource type="PackedScene" uid="uid://lerb8ge4j60o" path="res://Logic/Treasure/Spawner/TreasureSpawner.tscn" id="2_2gudo"]
+[ext_resource type="PackedScene" uid="uid://chxxemsbwng6f" path="res://Prototype/Jimmy/Map.tscn" id="2_i2d5d"]
 [ext_resource type="Script" path="res://Logic/UI/UIManager.gd" id="2_k6y41"]
 [ext_resource type="PackedScene" uid="uid://u2qcjsm1xetx" path="res://Logic/Goal/GoalZone.tscn" id="5_67146"]
 
@@ -10,6 +11,9 @@
 
 [node name="Main" type="Node"]
 script = ExtResource("1_phsoq")
+
+[node name="Map" parent="." instance=ExtResource("2_i2d5d")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="TreasureSpawner" parent="." instance=ExtResource("2_2gudo")]
 
@@ -27,11 +31,11 @@ size = 29.828
 [node name="Players" type="Node" parent="."]
 
 [node name="Player_0" parent="Players" instance=ExtResource("1_lgkyp")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 0)
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 1, 0, 0)
 motion_mode = 1
 
 [node name="Player_1" parent="Players" instance=ExtResource("1_lgkyp")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 0)
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 1, 0, 0)
 motion_mode = 1
 player_index = 1
 
