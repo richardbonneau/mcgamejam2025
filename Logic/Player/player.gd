@@ -18,7 +18,7 @@ var orbit_angle = 0.0
 var dead: bool = false
 
 var cargo: Array = []
-@export var max_weight: float = 30.0
+@export var max_weight: float = 10.0
 
 @export var respawn_time = 3.0
 
