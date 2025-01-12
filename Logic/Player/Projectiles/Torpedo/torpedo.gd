@@ -7,7 +7,6 @@ var player_id: int
 var time_since_launch: float = 0.0
 var initial_position: Vector3
 
-@onready var explosion_effect = preload("res://Logic/Player/Projectiles/Torpedo/explosion.tscn")
 @onready var collision_shape = $Area3D
 
 func shoot(shoot_direction: Vector2, player_index: int):
@@ -88,8 +87,14 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 	elif body is Player and body.player_index != player_id: explode()
 
 func explode():
-	# Spawn explosion effect at torpedo's position
-	var explosion = explosion_effect.instantiate()
-	get_parent().add_child(explosion)
-	explosion.global_position = global_position
+	velocity = Vector3.ZERO
+	direction = Vector3.ZERO
+	set_physics_process(false)  # Stop physics processing
+	$MISSILEGREEN.hide()
+	$MISSILERED.hide()
+	$Area3D.queue_free()
+	$ExplosionEffect.start_explosion()
+	$ExplosionTimer.start()
+
+func _on_explosion_timer_timeout() -> void:
 	queue_free()
