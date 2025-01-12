@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://chsabe6ebbxet"]
+
+[ext_resource type="PackedScene" uid="uid://dedpynx4mogwv" path="res://Art/PAT PLANTS/Broke ship.glb" id="1_miepn"]
+
+[node name="Broke ship" instance=ExtResource("1_miepn")]

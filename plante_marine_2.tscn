@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://jrbpupe7l52v"]
+
+[ext_resource type="PackedScene" uid="uid://cvr2ih5opvcx7" path="res://Art/PAT PLANTS/Plante marine 2.glb" id="1_0l4uq"]
+
+[node name="Plante marine 2" instance=ExtResource("1_0l4uq")]

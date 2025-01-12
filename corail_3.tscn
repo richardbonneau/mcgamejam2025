@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1er5a5vqv2cx"]
+
+[ext_resource type="PackedScene" uid="uid://bn2kt61f00hqt" path="res://Art/PAT PLANTS/Corail 3.glb" id="1_ra4io"]
+
+[node name="Corail 3" instance=ExtResource("1_ra4io")]

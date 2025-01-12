@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://chxxemsbwng6f"]
+[gd_scene load_steps=15 format=3 uid="uid://chxxemsbwng6f"]
 
 [ext_resource type="PackedScene" uid="uid://ymvup8jcw8wh" path="res://Prototype/Jimmy/Assets/rock_2.tscn" id="1_n6jvv"]
 [ext_resource type="PackedScene" uid="uid://32cxgwupq7tc" path="res://Prototype/Jimmy/Assets/rock_5.tscn" id="2_olhml"]
@@ -8,6 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://ck5hy815kdkt4" path="res://Prototype/Jimmy/Assets/netred.tscn" id="6_kfe6v"]
 [ext_resource type="PackedScene" uid="uid://b5gtaejfki0pd" path="res://Prototype/Jimmy/Assets/sea_grass_final.tscn" id="7_erii2"]
 [ext_resource type="PackedScene" uid="uid://ctb846ldnosy7" path="res://Prototype/Jimmy/Assets/crate.tscn" id="8_kj0dn"]
+[ext_resource type="PackedScene" uid="uid://chsabe6ebbxet" path="res://broke_ship.tscn" id="9_4grxa"]
+[ext_resource type="PackedScene" uid="uid://d4jjfw0wv5mfg" path="res://corail_1.tscn" id="10_djims"]
+[ext_resource type="PackedScene" uid="uid://5mlr7kwumwpl" path="res://corail_2.tscn" id="11_l1uxv"]
+[ext_resource type="PackedScene" uid="uid://b1er5a5vqv2cx" path="res://corail_3.tscn" id="12_d0ust"]
+[ext_resource type="PackedScene" uid="uid://jrbpupe7l52v" path="res://plante_marine_2.tscn" id="13_kdouy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h8gh6"]
 
@@ -17,7 +22,7 @@
 transform = Transform3D(-1.26564, -1.07677, -2.49774, 1.13976, 2.29142, -1.56536, 2.46964, -1.60934, -0.557616, 0, 1.48317, 8.03248)
 
 [node name="Rock23" parent="." instance=ExtResource("1_n6jvv")]
-transform = Transform3D(-1.26564, -2.15354, -2.49774, 2.16678, 2.53228, -1.64377, 1.64415, -4.99498, 0.243549, 0, 9.92544, -26.9403)
+transform = Transform3D(-1.26564, -2.15354, -2.49774, 1.98856, 3.02656, -1.66001, 1.85574, -4.71192, 0.0753197, 0, 15.2467, -27.1268)
 
 [node name="Rock26" parent="." instance=ExtResource("1_n6jvv")]
 transform = Transform3D(2.24193, -2.55529, -2.10813, 0.0575512, 2.5752, -3.06024, 3.31216, 1.68488, 1.48012, 0, -18.6438, 14.1387)
@@ -38,7 +43,7 @@ transform = Transform3D(-1.21515, 0.165332, -0.431368, -0.459823, -0.316062, 1.1
 transform = Transform3D(-0.992205, 0.0178079, 0.123335, 0.00879057, 0.997273, -0.0732746, -0.124303, -0.0716193, -0.989656, 0, 0.362511, 9.80345)
 
 [node name="Rock15" parent="." instance=ExtResource("2_olhml")]
-transform = Transform3D(1.9126, 0.109599, 0.574399, 0.519083, 0.586383, -1.8403, -0.269256, 1.90896, 0.532314, 0, 18.6908, -17.2609)
+transform = Transform3D(1.9126, 0.109599, 0.574399, 0.519083, 0.586383, -1.8403, -0.269256, 1.90896, 0.532314, 0, 18.6908, -11.9346)
 
 [node name="Rock18" parent="." instance=ExtResource("2_olhml")]
 transform = Transform3D(-1.44014, 0.158993, -0.388229, 0.164601, 1.49094, 0, 0.385884, -0.042602, -1.44889, 0, -13.9353, -0.86059)
@@ -57,6 +62,9 @@ transform = Transform3D(1.59647, -5.96046e-08, 3.6676, 2.49121, -2.93563, -1.084
 
 [node name="Rock9" parent="." instance=ExtResource("3_i3m3f")]
 transform = Transform3D(-1.54386, 1.96575, 1.65901, -2.33229, -0.253725, -1.86977, -1.08486, -2.25199, 1.6588, 0, 11.8957, 17.2001)
+
+[node name="Rock13" parent="." instance=ExtResource("3_i3m3f")]
+transform = Transform3D(-0.234999, 2.87201, 0.834467, -0.15297, -0.847486, 2.87373, 2.98687, 0.182563, 0.212829, 0, 15.7354, 27.3526)
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, 0, 0.0798548, -0.828395)
@@ -111,16 +119,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.943183, 3.45564, -8.44221)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.943183, 4.70678, -8.36877)
 
 [node name="SeaGrassFINAL10" parent="." instance=ExtResource("7_erii2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.943183, 12.3792, -29.2294)
+transform = Transform3D(0.999363, 0, -0.0356844, 0, 1, 0, 0.0356844, 0, 0.999363, 0.943183, 17.7202, -29.4159)
+
+[node name="SeaGrassFINAL21" parent="." instance=ExtResource("7_erii2")]
+transform = Transform3D(0.999363, 0, -0.0356844, 0, 1, 0, 0.0356844, 0, 0.999363, 0.943183, 17.7202, -30.1752)
 
 [node name="SeaGrassFINAL11" parent="." instance=ExtResource("7_erii2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.943183, 12.3792, -28.1141)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.943183, 17.7202, -28.3006)
 
 [node name="SeaGrassFINAL12" parent="." instance=ExtResource("7_erii2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.943183, 12.027, -27.2337)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.943183, 17.368, -27.4202)
 
 [node name="SeaGrassFINAL13" parent="." instance=ExtResource("7_erii2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.943183, 12.3205, -26.1772)
+transform = Transform3D(1, 0, 0, 0, 0.999933, 0.0115538, 0, -0.0115538, 0.999933, 0.943183, 17.656, -26.3664)
 
 [node name="SeaGrassFINAL15" parent="." instance=ExtResource("7_erii2")]
 transform = Transform3D(0.69437, 0, -0.719619, 0, 1, 0, 0.719619, 0, 0.69437, 0.943183, -10.9841, -1.29835)
@@ -141,7 +152,7 @@ transform = Transform3D(0.69437, 0, -0.719619, -0.337375, 0.883291, -0.325537, 0
 transform = Transform3D(0.69437, 0, -0.719619, 0, 1, 0, 0.719619, 0, 0.69437, 0.943183, 16.4956, 0.113982)
 
 [node name="SeaGrassFINAL14" parent="." instance=ExtResource("7_erii2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.943183, 11.8509, -25.2381)
+transform = Transform3D(1, 0, 0, 0, 0.999933, 0.0115538, 0, -0.0115538, 0.999933, 0.943183, 17.1973, -25.4219)
 
 [node name="SeaGrassFINAL3" parent="." instance=ExtResource("7_erii2")]
 transform = Transform3D(1, 0, 0, 0, 0.955082, 0.296342, 0, -0.296342, 0.955082, 0.943183, 3.22068, 4.48096)
@@ -156,10 +167,40 @@ transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 2.621, 6.8733, 1.63824)
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 2.621, 9.97477, -0.198414)
 
 [node name="Crate4" parent="." instance=ExtResource("8_kj0dn")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 2.621, -11.086, -4.58078)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 2.621, -10.8024, -4.58078)
 
 [node name="Crate5" parent="." instance=ExtResource("8_kj0dn")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 2.621, -8.05151, -6.09801)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 2.621, -7.76789, -6.09801)
 
 [node name="Crate6" parent="." instance=ExtResource("8_kj0dn")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 2.621, -4.95004, -7.93467)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 2.621, -4.66642, -7.93467)
+
+[node name="Broke ship" parent="." instance=ExtResource("9_4grxa")]
+transform = Transform3D(3.06418, 2.57115, 0, -2.57115, 3.06418, 0, 0, 0, 4, 1.5, -20.2243, -8.50316)
+
+[node name="Corail 1" parent="." instance=ExtResource("10_djims")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -16.1592, 13.7192)
+
+[node name="Corail 2" parent="." instance=ExtResource("10_djims")]
+transform = Transform3D(0.877958, 0, 0.478738, 0, 1, 0, -0.478738, 0, 0.877958, 1.69664, -22.3349, 26.8601)
+
+[node name="Corail2" parent="." instance=ExtResource("11_l1uxv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 17.51, 28.9375)
+
+[node name="Corail4" parent="." instance=ExtResource("11_l1uxv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00839, -7.12296, 26.8627)
+
+[node name="Corail3" parent="." instance=ExtResource("11_l1uxv")]
+transform = Transform3D(-0.916733, 0, -0.399501, 0, 1, 0, 0.399501, 0, -0.916733, 0.252608, 17.51, 26.997)
+
+[node name="Corail 3" parent="." instance=ExtResource("12_d0ust")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.842899, 16.4469, 28.0723)
+
+[node name="Corail 4" parent="." instance=ExtResource("12_d0ust")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -0.232493, -22.9569, 28.5718)
+
+[node name="Plante marine 2" parent="." instance=ExtResource("13_kdouy")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 2.38409, -21.3959, 6.44648)
+
+[node name="Plante marine 3" parent="." instance=ExtResource("13_kdouy")]
+transform = Transform3D(2.89532, 0, -0.785557, 0, 3, 0, 0.785557, 0, 2.89532, 2.2748, -21.3959, -26.8716)
