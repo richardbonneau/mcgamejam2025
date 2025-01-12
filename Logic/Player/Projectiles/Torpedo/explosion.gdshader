@@ -1,7 +1,9 @@
 shader_type spatial;
 render_mode blend_mix, depth_draw_never, cull_disabled, unshaded;
 
-#define iTime TIME
+uniform float explosion_time : hint_range(0.0, 2.0) = 0.0;
+
+#define iTime explosion_time
 #define iResolution 1.0/SCREEN_PIXEL_SIZE
 #define fragColor ALBEDO
 
