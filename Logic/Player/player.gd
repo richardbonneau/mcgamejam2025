@@ -38,63 +38,87 @@ func _physics_process(delta):
 	if not movement_point:
 		push_error("Movement point not assigned!")
 		return
-	# Initialize movement point position
+	
 	update_movement_point_position(Vector2.RIGHT)
-	# Get input direction using the left stick
+	
+	# Get input direction from gamepad
 	var input_dir = Vector3.ZERO
-	input_dir.x = Input.get_axis("l_stick_left"+str(player_index), "l_stick_right"+str(player_index))
-	input_dir.y = Input.get_axis("l_stick_up"+str(player_index), "l_stick_down"+str(player_index))
+	input_dir.x = Input.get_axis("l_stick_left" + str(player_index), "l_stick_right" + str(player_index))
+	input_dir.y = Input.get_axis("l_stick_up"   + str(player_index), "l_stick_down"  + str(player_index))
 	
-	# Create input vector
-	var stick_input = Vector2(input_dir.x, -input_dir.y)  # Invert Y for correct orientation
+	# Convert to 2D, inverting Y if needed
+	var stick_input = Vector2(input_dir.x, -input_dir.y)
 	
-	if stick_input.length() > 0.1:  # Small deadzone
-		# Update movement point position
+	if stick_input.length() > 0.1:
+		# Move the 'movement_point' in front of sub
 		update_movement_point_position(stick_input.normalized())
 		
-		# Make player look at movement point
+		# (Optional) Make submarine look at movement point
 		look_at_movement_point()
 		
 		# Move towards the movement point
-		var direction_to_point = (movement_point.global_position - global_position)
-		direction_to_point.z = 0  # Keep movement in 2D plane
-		direction_to_point = direction_to_point.normalized()
+		var dir_to_point = movement_point.global_position - global_position
+		dir_to_point.z = 0
+		dir_to_point = dir_to_point.normalized()
 		
-		velocity.x += direction_to_point.x * acceleration * delta
-		velocity.y += direction_to_point.y * acceleration * delta
+		velocity.x += dir_to_point.x * acceleration * delta
+		velocity.y += dir_to_point.y * acceleration * delta
 		
-		# Apply acceleration in the input direction
-		if input_dir != Vector3.ZERO:
-			velocity.x += input_dir.x * acceleration * delta
-			velocity.y -= input_dir.y * acceleration * delta
-			
-			# Clamp to max speed
-			var current_velocity = Vector2(velocity.x, velocity.y)
-			if current_velocity.length() > speed:
-				current_velocity = current_velocity.normalized() * speed
-				velocity.x = current_velocity.x
-				velocity.y = current_velocity.y
+		# Also add direct input acceleration
+		velocity.x += input_dir.x * acceleration * delta
+		velocity.y -= input_dir.y * acceleration * delta  # minus sign if you want to invert Y
 		
-		# Apply underwater drag when no input or slowing down
+		# Clamp speed
+		var current_vel_2d = Vector2(velocity.x, velocity.y)
+		if current_vel_2d.length() > speed:
+			current_vel_2d = current_vel_2d.normalized() * speed
+			velocity.x = current_vel_2d.x
+			velocity.y = current_vel_2d.y
+		
+		# Underwater drag
 		velocity.x *= drag_factor
 		velocity.y *= drag_factor
-		
-		# Keep Z velocity at 0
 		velocity.z = 0
 		
-		# Update target rotation based on movement direction
-		if abs(velocity.x) > 0.1:  # Only change target when there's significant horizontal movement
-			target_rotation = -PI/2 if velocity.x > 0 else PI/2
+		# Decide orientation based on velocity direction
+		if velocity.length() > 0.1:
+			var vel_2d = Vector2(velocity.x, velocity.y)
+			var target_rot = get_target_orientation(vel_2d)
+			
+			rotation.x = smooth_angle(rotation.x, target_rot.x, rotation_speed, delta)
+			rotation.y = smooth_angle(rotation.y, target_rot.y, rotation_speed, delta)
+			rotation.z = 0
 		
-		# Smoothly interpolate current rotation to target
-		if abs(rotation.y - target_rotation) > 0.01:  # If we're not already at target
-			var shortest_angle = fposmod(target_rotation - rotation.y + PI, PI * 2) - PI
-			rotation.y += sign(shortest_angle) * min(rotation_speed * delta, abs(shortest_angle))
-		
+		# Actually move
 		move_and_slide()
 		
 		# Lock Z position
 		position.z = initial_z
+
+
+func get_target_orientation(velocity_2d: Vector2) -> Vector3:
+	var angle = velocity_2d.angle()
+	var angle_deg = rad_to_deg(angle)
+	
+	if angle_deg > -45 and angle_deg < 45:
+		# Right
+		return Vector3(0, -PI/2, 0)
+	elif angle_deg >= 45 and angle_deg < 135:
+		# Up
+		return Vector3(PI/2, 0, 0)
+	elif angle_deg >= 135 or angle_deg < -135:
+		# Left
+		return Vector3(0, PI/2, 0)
+	else:
+		# Down: tilt nose down (-PI/2) but add a 180° yaw (PI) to show top
+		return Vector3(-PI/2, PI, 0)
+
+
+
+func smooth_angle(current_angle: float, target_angle: float, speed: float, delta: float) -> float:
+	var shortest = fposmod((target_angle - current_angle) + PI, PI * 2) - PI
+	return current_angle + sign(shortest) * min(speed * delta, abs(shortest))
+
 
 func _player_died(playerIndex: int):
 	if (playerIndex == player_index):
