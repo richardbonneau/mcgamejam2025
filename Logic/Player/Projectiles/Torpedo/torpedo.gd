@@ -65,22 +65,6 @@ func _physics_process(delta):
 	move_and_slide()
 	rotation.z = atan2(velocity.y, velocity.x)
 
-#func _on_area_3d_area_entered(area: Area3D) -> void:
-	#var should_explode = false
-	#
-	#if area.get_parent() is Player:
-		#var player_hit = area.get_parent() as Player
-		#if player_hit.dead: return #Don't register collision with dead players
-		#if player_hit.player_index == player_id: return
-		#Health.TakeDamage.emit(player_hit.player_index, 50)
-		#should_explode = true
-	## Check if we hit a map object (layer 1)
-	#elif area.get_collision_layer_value(1):
-		#should_explode = true
-	#
-	#if should_explode: explode()
-
-
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body is LevelCollision: explode()
@@ -93,7 +77,7 @@ func explode():
 	$MISSILEGREEN.hide()
 	$MISSILERED.hide()
 	$Area3D.queue_free()
-	$ExplosionEffect.start_explosion()
+	$ExplosionEffect.start_explosion(player_id)
 	$ExplosionTimer.start()
 
 func _on_explosion_timer_timeout() -> void:
