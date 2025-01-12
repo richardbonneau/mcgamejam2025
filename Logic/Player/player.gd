@@ -49,6 +49,7 @@ func _ready():
 
 
 func _physics_process(delta):
+	if dead: return
 	# Ensure movement point exists
 	if not movement_point:
 		push_error("Movement point not assigned!")
@@ -139,6 +140,9 @@ func _player_died(playerIndex: int):
 	if (playerIndex == player_index):
 		dead = true
 		print("Player "+str(player_index)+" has died.")
+		#Send the player outside the playable area
+		position.x = 999
+		position.y = 999
 		#TODO : trigger death animation?
 		#TODO : drop all cargo or shuffle it on the map?
 		cargo = []
