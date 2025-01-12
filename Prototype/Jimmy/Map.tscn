@@ -4,14 +4,14 @@
 [ext_resource type="PackedScene" uid="uid://32cxgwupq7tc" path="res://Prototype/Jimmy/Assets/rock_5.tscn" id="2_olhml"]
 [ext_resource type="PackedScene" uid="uid://bh5q6rxwsnrt1" path="res://Prototype/Jimmy/Assets/rock_4.tscn" id="3_i3m3f"]
 [ext_resource type="Texture2D" uid="uid://dlyjyndps2hy8" path="res://Prototype/Jimmy/Assets/backround.jpg" id="4_ix46i"]
-[ext_resource type="PackedScene" uid="uid://buktp1fu44j8a" path="res://Prototype/Jimmy/Assets/netgreen.tscn" id="5_a2vma"]
-[ext_resource type="PackedScene" uid="uid://ck5hy815kdkt4" path="res://Prototype/Jimmy/Assets/netred.tscn" id="6_kfe6v"]
-[ext_resource type="PackedScene" uid="uid://b5gtaejfki0pd" path="res://Prototype/Jimmy/Assets/sea_grass_final.tscn" id="7_erii2"]
-[ext_resource type="PackedScene" uid="uid://ctb846ldnosy7" path="res://Prototype/Jimmy/Assets/crate.tscn" id="8_kj0dn"]
-[ext_resource type="PackedScene" uid="uid://chsabe6ebbxet" path="res://broke_ship.tscn" id="9_4grxa"]
-[ext_resource type="PackedScene" uid="uid://d4jjfw0wv5mfg" path="res://corail_1.tscn" id="10_djims"]
-[ext_resource type="PackedScene" uid="uid://5mlr7kwumwpl" path="res://corail_2.tscn" id="11_l1uxv"]
-[ext_resource type="PackedScene" uid="uid://b1er5a5vqv2cx" path="res://corail_3.tscn" id="12_d0ust"]
+[ext_resource type="PackedScene" path="res://Prototype/Jimmy/Assets/netgreen.tscn" id="5_a2vma"]
+[ext_resource type="PackedScene" path="res://Prototype/Jimmy/Assets/netred.tscn" id="6_kfe6v"]
+[ext_resource type="PackedScene" path="res://Prototype/Jimmy/Assets/sea_grass_final.tscn" id="7_erii2"]
+[ext_resource type="PackedScene" uid="uid://ctumfhea7sofw" path="res://Prototype/Jimmy/Assets/crate.tscn" id="8_kj0dn"]
+[ext_resource type="PackedScene" uid="uid://boqh7c7jfmvok" path="res://broke_ship.tscn" id="9_4grxa"]
+[ext_resource type="PackedScene" path="res://corail_1.tscn" id="10_djims"]
+[ext_resource type="PackedScene" path="res://corail_2.tscn" id="11_l1uxv"]
+[ext_resource type="PackedScene" path="res://corail_3.tscn" id="12_d0ust"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h8gh6"]
 
@@ -88,10 +88,10 @@ transform = Transform3D(-9.61651e-07, -2, 0, 22, -8.74228e-08, 0, 0, 0, 2, -11.1
 shape = SubResource("BoxShape3D_h8gh6")
 
 [node name="NETGREEN" parent="Sprite3D/StaticBody3D" instance=ExtResource("5_a2vma")]
-transform = Transform3D(-4.63629e-08, -4.63629e-08, -1.5, -1.06066, 1.06066, 0, 1.06066, 1.06066, -6.55671e-08, -7.497, 0, 0.990401)
+transform = Transform3D(-3.69005e-14, -6.5567e-08, -1.5, -1.5, -1.31134e-07, 7.10543e-14, -1.31134e-07, 1.5, -6.55671e-08, -7.497, 0, 0.40057)
 
 [node name="NETRED" parent="." instance=ExtResource("6_kfe6v")]
-transform = Transform3D(3.18198, 3.18198, 0, -3.18198, 3.18198, 0, 0, 0, 4.5, 2.83465, 0, -23.361)
+transform = Transform3D(0.368289, 4.47911, 0.227915, -4.48438, 0.364284, 0.087225, 0.0683702, -0.234262, 4.49338, 1.26254, 0, -23.361)
 
 [node name="SeaGrassFINAL" parent="." instance=ExtResource("7_erii2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.943183, 3.48311, 5.63981)
