@@ -52,11 +52,11 @@ surface_material_override/0 = SubResource("ShaderMaterial_y1dvy")
 [node name="Players" type="Node" parent="."]
 
 [node name="Player_0" parent="Players" instance=ExtResource("4_iupam")]
-transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 1, 0, 0)
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, -24.1581, 0, 0)
 motion_mode = 1
 
 [node name="Player_1" parent="Players" instance=ExtResource("4_iupam")]
-transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 1, 0, 0)
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 25.2217, 0, 0)
 motion_mode = 1
 player_index = 1
 
