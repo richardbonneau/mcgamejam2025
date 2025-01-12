@@ -32,4 +32,11 @@ size_flags_vertical = 4
 theme_override_font_sizes/font_size = 25
 text = "Start"
 
+[node name="Button2" type="Button" parent="."]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 25
+text = "Quit"
+
 [connection signal="pressed" from="Button" to="." method="_on_start_pressed"]
+[connection signal="button_up" from="Button2" to="." method="_on_quit_pressed"]
