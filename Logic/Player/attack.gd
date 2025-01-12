@@ -1,15 +1,22 @@
 extends Node3D
 
-@export var shooting_point:Node3D
+@export var shooting_point: Node3D
 @export var orbit_radius = 4.0  # Distance from player
 @export var torpedo_scene: PackedScene
 @export var fire_cooldown = 0.5  # seconds between shots
-@export var min_stick_threshold = 0  # Lower threshold for more precise control
+@export var min_stick_threshold = 0.001  # Lower threshold for more precise control
 
 var can_fire = true
 var cooldown_timer = 0.0
 var aim_line: Line2D
 var playerInstance: Player
+
+# Store the current smoothed stick input
+var smoothed_stick_input := Vector2.ZERO
+var smoothing_factor := 0.1
+
+const JOY_AXIS_2 = 2
+const JOY_AXIS_3 = 3
 
 func _ready():
 	playerInstance = get_parent()
@@ -32,32 +39,40 @@ func _process(delta: float) -> void:
 			can_fire = true
 			cooldown_timer = 0.0
 	
-	# Get input using the right stick
-	var stick_x = Input.get_axis("r_stick_left"+str(playerInstance.player_index), "r_stick_right"+str(playerInstance.player_index))
-	var stick_y = Input.get_axis("r_stick_up"+str(playerInstance.player_index), "r_stick_down"+str(playerInstance.player_index))
-	print(stick_x, stick_y)
-	# Create input vector
-	var stick_input = Vector2(stick_x, -stick_y)  # Invert Y for correct orientation
+	# Get raw input using the right stick
+	var raw_x = Input.get_joy_axis(playerInstance.player_index, JOY_AXIS_2)
+	var raw_y = Input.get_joy_axis(playerInstance.player_index, JOY_AXIS_3)
 	
-	if stick_input.length() > min_stick_threshold:
-		# Update shooting point position
-		update_shooting_point_position(stick_input.normalized())
-		# Update aim line
+	# Convert to Vector2 and invert Y for proper orientation
+	var raw_stick_input = Vector2(raw_x, -raw_y)
+
+	# Don't process input if raw input is too small
+	if raw_stick_input.length() < 0.05:
+		aim_line.visible = false
+		return
+
+	# Apply smoothing
+	smoothed_stick_input = lerp(smoothed_stick_input, raw_stick_input, smoothing_factor)
+
+	# Apply deadzone
+	if smoothed_stick_input.length() < min_stick_threshold:
+		smoothed_stick_input = Vector2.ZERO
+
+	# Update shooting point and aim line if aiming
+	if smoothed_stick_input.length() > 0:
+		update_shooting_point_position(smoothed_stick_input.normalized())
 		update_aim_line()
 	else:
-		# Hide aim line when not aiming
 		aim_line.visible = false
 	
 	# Check if R2 is pressed and we can fire
-	if (!playerInstance.dead)  and can_fire and stick_input.length() > min_stick_threshold:
-		# Calculate direction from player to shooting point
+	if not playerInstance.dead and can_fire and smoothed_stick_input.length() > min_stick_threshold:
 		var shoot_dir = (shooting_point.global_position - global_position)
 		shoot_dir.z = 0  # Ensure we're in 2D plane
 		fire_torpedo(Vector2(shoot_dir.x, shoot_dir.y).normalized())
 
 func update_shooting_point_position(direction: Vector2) -> void:
 	if shooting_point:
-		# Calculate new position based on direction
 		var target_pos = Vector3(
 			global_position.x + direction.x * orbit_radius,
 			global_position.y + direction.y * orbit_radius,
@@ -69,7 +84,6 @@ func update_aim_line() -> void:
 	if shooting_point:
 		aim_line.visible = true
 		aim_line.clear_points()
-		# Convert 3D positions to 2D for the line
 		var start_pos = Vector2(global_position.x, global_position.y)
 		var end_pos = Vector2(shooting_point.global_position.x, shooting_point.global_position.y)
 		aim_line.add_point(start_pos)
@@ -78,15 +92,9 @@ func update_aim_line() -> void:
 func fire_torpedo(direction: Vector2) -> void:
 	if playerInstance.dead: return
 	can_fire = false
-	
-	# Instance the torpedo
 	var torpedo = torpedo_scene.instantiate()
 	get_tree().get_root().add_child(torpedo)
-	
-	# Set torpedo's position to this spawner's global position
 	torpedo.global_position = global_position
 	torpedo.position.z = 0
 	torpedo.player_id = playerInstance.player_index
-	
-	# Launch the torpedo
 	torpedo.shoot(direction, playerInstance.player_index)
