@@ -8,12 +8,27 @@ var time_since_launch: float = 0.0
 var initial_position: Vector3
 
 @onready var explosion_effect = preload("res://Logic/Player/Projectiles/Torpedo/explosion.tscn")
+@onready var collision_shape = $Area3D
 
-func shoot(shoot_direction: Vector2):
+func shoot(shoot_direction: Vector2, player_index: int):
+	player_id = player_index
 	time_since_launch = 0.0
 	initial_position = position
-	if player_id % 2 == 0: $MISSILEGREEN.show()
-	elif player_id % 2 == 1: $MISSILERED.show()
+	
+	# Set visual based on player index
+	if player_id % 2 == 0: 
+		$MISSILEGREEN.show()
+		# Set collision mask for player 0's torpedo (layer 2)
+		collision_shape.set_collision_mask_value(2, false)  # Disable collision with player 0
+		collision_shape.set_collision_mask_value(3, true)   # Enable collision with player 1
+	elif player_id % 2 == 1: 
+		$MISSILERED.show()
+		# Set collision mask for player 1's torpedo (layer 3)
+		collision_shape.set_collision_mask_value(2, true)   # Enable collision with player 0
+		collision_shape.set_collision_mask_value(3, false)  # Disable collision with player 1
+	
+	# Enable collision with map objects (layer 1)
+	collision_shape.set_collision_mask_value(1, true)
 	
 	direction = Vector3(shoot_direction.x, shoot_direction.y, 0).normalized()
 	
@@ -44,23 +59,37 @@ func _physics_process(delta):
 	var current_speed = base_speed * speed_multiplier
 	velocity = direction * current_speed
 	
-	# Debug print every 0.1 seconds
-	if int(time_since_launch * 10) != int((time_since_launch - delta) * 10):
-		print("Time: ", curve_time, " Speed Multiplier: ", speed_multiplier, " Current Speed: ", current_speed)
+	## Debug print every 0.1 seconds
+	#if int(time_since_launch * 10) != int((time_since_launch - delta) * 10):
+		#print("Time: ", curve_time, " Speed Multiplier: ", speed_multiplier, " Current Speed: ", current_speed)
 	
 	move_and_slide()
 	rotation.z = atan2(velocity.y, velocity.x)
 
-func _on_area_3d_area_entered(area: Area3D) -> void:
-	if area.get_parent() is Player:
-		var player_hit = area.get_parent() as Player
-		if player_hit.dead: return #Don't register collision with dead players
-		if player_hit.player_index == player_id: return
-		Health.TakeDamage.emit(player_hit.player_index, 50)
-		
+#func _on_area_3d_area_entered(area: Area3D) -> void:
+	#var should_explode = false
+	#
+	#if area.get_parent() is Player:
+		#var player_hit = area.get_parent() as Player
+		#if player_hit.dead: return #Don't register collision with dead players
+		#if player_hit.player_index == player_id: return
+		#Health.TakeDamage.emit(player_hit.player_index, 50)
+		#should_explode = true
+	## Check if we hit a map object (layer 1)
+	#elif area.get_collision_layer_value(1):
+		#should_explode = true
+	#
+	#if should_explode: explode()
+
+
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if body is LevelCollision: explode()
+	elif body is Player and body.player_index != player_id: explode()
+
+func explode():
 	# Spawn explosion effect at torpedo's position
 	var explosion = explosion_effect.instantiate()
 	get_parent().add_child(explosion)
 	explosion.global_position = global_position
-	
 	queue_free()

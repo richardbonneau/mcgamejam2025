@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=4 uid="uid://ctb846ldnosy7"]
+[gd_scene load_steps=10 format=4 uid="uid://ctumfhea7sofw"]
 
+[ext_resource type="Script" path="res://Prototype/Jimmy/Assets/LevelCollision.gd" id="1_68wha"]
 [ext_resource type="Texture2D" uid="uid://dot0sbc175xiu" path="res://Art/Cratewood/Crate_wood 5.jpg" id="1_pufpv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cs21q"]
@@ -128,6 +129,7 @@ shadow_mesh = SubResource("ArrayMesh_kovm4")
 size = Vector3(1.06757, 1, 1.03467)
 
 [node name="Crate" type="StaticBody3D"]
+script = ExtResource("1_68wha")
 
 [node name="Cube" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.111497, -0.000271676, 0.00678307, -0.000969435, -6.07673e-05, 0.781338, -0.000845452, -0.0357585, -0.00137933, 0, 0, 0)

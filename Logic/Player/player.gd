@@ -28,8 +28,23 @@ func _ready():
 	Health.PlayerDied.connect(_player_died)
 	initial_z = position.z
 	initial_position = position
-	if player_index % 2 == 0: $GREENDSUBMARINE.show()
-	elif player_index % 2 == 1: $REDSUBMARINE.show()
+	
+	# Set collision layer based on player index
+	# Player 0 is on layer 2, Player 1 is on layer 3
+	var collision_area = $HitDetectionArea
+	if collision_area:
+		# Reset all collision layers first
+		collision_area.set_collision_layer_value(2, false)
+		collision_area.set_collision_layer_value(3, false)
+		
+		# Set the appropriate layer for this player
+		if player_index % 2 == 0:
+			collision_area.set_collision_layer_value(2, true)  # Layer 2 for player 0
+			$GREENDSUBMARINE.show()
+		else:
+			collision_area.set_collision_layer_value(3, true)  # Layer 3 for player 1
+			$REDSUBMARINE.show()
+	
 	__spawn()
 
 

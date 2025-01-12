@@ -76,6 +76,7 @@ func update_aim_line() -> void:
 		aim_line.add_point(end_pos)
 
 func fire_torpedo(direction: Vector2) -> void:
+	if playerInstance.dead: return
 	can_fire = false
 	
 	# Instance the torpedo
@@ -88,4 +89,4 @@ func fire_torpedo(direction: Vector2) -> void:
 	torpedo.player_id = playerInstance.player_index
 	
 	# Launch the torpedo
-	torpedo.shoot(direction)
+	torpedo.shoot(direction, playerInstance.player_index)

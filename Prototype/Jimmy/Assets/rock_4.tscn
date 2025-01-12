@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=4 uid="uid://bh5q6rxwsnrt1"]
+[gd_scene load_steps=7 format=4 uid="uid://bh5q6rxwsnrt1"]
 
 [ext_resource type="Texture2D" uid="uid://cpmxgpq6cafm7" path="res://Art/Rocky 2/Rock4_TCom_Rock_CaveWall_header.jpg" id="1_i6p0q"]
+[ext_resource type="Script" path="res://Prototype/Jimmy/Assets/LevelCollision.gd" id="1_xkb5m"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eq0vq"]
 resource_name = "Material"
@@ -44,6 +45,7 @@ shadow_mesh = SubResource("ArrayMesh_vcg58")
 size = Vector3(0.687744, 0.585876, 0.579041)
 
 [node name="Rock4" type="StaticBody3D"]
+script = ExtResource("1_xkb5m")
 
 [node name="Cube" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.932733, 0, 0, 0, 0.810036, 0, 0, 0, 1.04537, 0, 0, 0)
