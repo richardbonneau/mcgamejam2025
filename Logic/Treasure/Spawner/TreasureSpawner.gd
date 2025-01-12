@@ -19,10 +19,10 @@ var treasure_spawn_points :Array = [
 func _ready() -> void:
 	timer.start()
 	timer.connect("timeout", spawn)
+	spawn()
 
 
 func spawn():
-	
 	var initial_index = randi_range(0, treasure_spawn_points.size()-1)
 	var index = initial_index
 	while true:
