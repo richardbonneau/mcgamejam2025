@@ -30,11 +30,11 @@ size = 29.828
 [node name="Players" type="Node" parent="."]
 
 [node name="Player_0" parent="Players" instance=ExtResource("1_lgkyp")]
-transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 1, 0, 0)
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, -23.5022, 0, 0)
 motion_mode = 1
 
 [node name="Player_1" parent="Players" instance=ExtResource("1_lgkyp")]
-transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 1, 0, 0)
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 24.4469, 0, 0)
 motion_mode = 1
 player_index = 1
 

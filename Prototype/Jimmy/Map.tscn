@@ -4,14 +4,14 @@
 [ext_resource type="PackedScene" uid="uid://32cxgwupq7tc" path="res://Prototype/Jimmy/Assets/rock_5.tscn" id="2_olhml"]
 [ext_resource type="PackedScene" uid="uid://bh5q6rxwsnrt1" path="res://Prototype/Jimmy/Assets/rock_4.tscn" id="3_i3m3f"]
 [ext_resource type="Texture2D" uid="uid://dlyjyndps2hy8" path="res://Prototype/Jimmy/Assets/backround.jpg" id="4_ix46i"]
-[ext_resource type="PackedScene" path="res://Prototype/Jimmy/Assets/netgreen.tscn" id="5_a2vma"]
-[ext_resource type="PackedScene" path="res://Prototype/Jimmy/Assets/netred.tscn" id="6_kfe6v"]
-[ext_resource type="PackedScene" path="res://Prototype/Jimmy/Assets/sea_grass_final.tscn" id="7_erii2"]
-[ext_resource type="PackedScene" uid="uid://ctumfhea7sofw" path="res://Prototype/Jimmy/Assets/crate.tscn" id="8_kj0dn"]
-[ext_resource type="PackedScene" uid="uid://boqh7c7jfmvok" path="res://broke_ship.tscn" id="9_4grxa"]
-[ext_resource type="PackedScene" path="res://corail_1.tscn" id="10_djims"]
-[ext_resource type="PackedScene" path="res://corail_2.tscn" id="11_l1uxv"]
-[ext_resource type="PackedScene" path="res://corail_3.tscn" id="12_d0ust"]
+[ext_resource type="PackedScene" uid="uid://buktp1fu44j8a" path="res://Prototype/Jimmy/Assets/netgreen.tscn" id="5_a2vma"]
+[ext_resource type="PackedScene" uid="uid://ck5hy815kdkt4" path="res://Prototype/Jimmy/Assets/netred.tscn" id="6_kfe6v"]
+[ext_resource type="PackedScene" uid="uid://b5gtaejfki0pd" path="res://Prototype/Jimmy/Assets/sea_grass_final.tscn" id="7_erii2"]
+[ext_resource type="PackedScene" uid="uid://ctb846ldnosy7" path="res://Prototype/Jimmy/Assets/crate.tscn" id="8_kj0dn"]
+[ext_resource type="PackedScene" uid="uid://chsabe6ebbxet" path="res://broke_ship.tscn" id="9_4grxa"]
+[ext_resource type="PackedScene" uid="uid://d4jjfw0wv5mfg" path="res://corail_1.tscn" id="10_djims"]
+[ext_resource type="PackedScene" uid="uid://5mlr7kwumwpl" path="res://corail_2.tscn" id="11_l1uxv"]
+[ext_resource type="PackedScene" uid="uid://b1er5a5vqv2cx" path="res://corail_3.tscn" id="12_d0ust"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h8gh6"]
 
@@ -157,22 +157,22 @@ transform = Transform3D(1, 0, 0, 0, 0.999933, 0.0115538, 0, -0.0115538, 0.999933
 transform = Transform3D(1, 0, 0, 0, 0.955082, 0.296342, 0, -0.296342, 0.955082, 0.943183, 3.22068, 4.48096)
 
 [node name="Crate" parent="." instance=ExtResource("8_kj0dn")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.490897, 3.83883, 3.15548)
+transform = Transform3D(-6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, 0, 0, 1.5, 0.490897, 3.83883, 3.15548)
 
 [node name="Crate2" parent="." instance=ExtResource("8_kj0dn")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.490897, 6.8733, 1.63824)
+transform = Transform3D(-6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, 0, 0, 1.5, 0.490897, 6.8733, 1.63824)
 
 [node name="Crate3" parent="." instance=ExtResource("8_kj0dn")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.490897, 9.97477, -0.198414)
+transform = Transform3D(-6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, 0, 0, 1.5, 0.490897, 9.97477, -0.198414)
 
 [node name="Crate4" parent="." instance=ExtResource("8_kj0dn")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.490897, -10.8024, -4.58078)
+transform = Transform3D(-6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, 0, 0, 1.5, 0.490897, -10.8024, -4.58078)
 
 [node name="Crate5" parent="." instance=ExtResource("8_kj0dn")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.490897, -7.76789, -6.09801)
+transform = Transform3D(-6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, 0, 0, 1.5, 0.490897, -7.76789, -6.09801)
 
 [node name="Crate6" parent="." instance=ExtResource("8_kj0dn")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.490897, -4.66642, -7.93467)
+transform = Transform3D(-6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, 0, 0, 1.5, 0.490897, -4.66642, -7.93467)
 
 [node name="Broke ship" parent="." instance=ExtResource("9_4grxa")]
 transform = Transform3D(3.06418, 2.57115, 0, -2.57115, 3.06418, 0, 0, 0, 4, 1.5, -20.2243, -8.50316)
