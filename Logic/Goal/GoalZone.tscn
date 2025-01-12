@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://u2qcjsm1xetx"]
+[gd_scene load_steps=5 format=3 uid="uid://u2qcjsm1xetx"]
 
 [ext_resource type="Script" path="res://Logic/Goal/GoalZone.gd" id="1_fkhgv"]
+[ext_resource type="AudioStream" uid="uid://cue68k0ien6so" path="res://Audio/score.wav" id="2_oh2tr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_76wv3"]
 
@@ -17,5 +18,8 @@ shape = SubResource("BoxShape3D_76wv3")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transparency = 0.7
 mesh = SubResource("CylinderMesh_o6tgy")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_oh2tr")
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

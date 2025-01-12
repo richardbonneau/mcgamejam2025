@@ -158,11 +158,11 @@ bar_color = Color(1, 0, 0.2, 1)
 [node name="GoalZones" type="Node" parent="."]
 
 [node name="GoalZone" parent="GoalZones" instance=ExtResource("6_i3s3v")]
-transform = Transform3D(6, 0, 0, 0, 3, 0, 0, 0, 3.5, -21.534, 0, 0)
+transform = Transform3D(6, 0, 0, 0, 3, 0, 0, 0, 3.5, -33.534, 0, 1)
 visible = false
 
 [node name="GoalZone2" parent="GoalZones" instance=ExtResource("6_i3s3v")]
-transform = Transform3D(6, 0, 0, 0, 3, 0, 0, 0, 3.5, 23.2651, 0, 0)
+transform = Transform3D(6, 0, 0, 0, 3, 0, 0, 0, 3.5, 36.2651, 0, 1)
 visible = false
 player_index = 1
 
