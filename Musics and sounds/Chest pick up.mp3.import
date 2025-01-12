@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://djf7qev8wcvdd"
+path="res://.godot/imported/Chest pick up.mp3-726023c96ae57f35455825b90ddf16d2.mp3str"
+
+[deps]
+
+source_file="res://Musics and sounds/Chest pick up.mp3"
+dest_files=["res://.godot/imported/Chest pick up.mp3-726023c96ae57f35455825b90ddf16d2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
