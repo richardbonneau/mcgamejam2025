@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ckpt3vgh5k43y"]
+[gd_scene load_steps=3 format=3 uid="uid://ckpt3vgh5k43y"]
 
 [ext_resource type="Script" path="res://Logic/UI/MainMenu.gd" id="1_dxvyb"]
+[ext_resource type="Texture2D" uid="uid://l54vuxhpwh80" path="res://Scenes/Photo menu.png" id="2_ixt2w"]
 
 [node name="MainMenu" type="MarginContainer"]
 anchors_preset = 15
@@ -13,6 +14,10 @@ theme_override_constants/margin_top = 80
 theme_override_constants/margin_right = 120
 theme_override_constants/margin_bottom = 80
 script = ExtResource("1_dxvyb")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_ixt2w")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2

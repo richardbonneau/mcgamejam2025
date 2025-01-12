@@ -7,7 +7,7 @@
 [ext_resource type="Shader" path="res://Art/UnderwaterEffect.gdshader" id="4_klmji"]
 [ext_resource type="Script" path="res://Logic/UI/UIManager.gd" id="5_wlew8"]
 [ext_resource type="PackedScene" uid="uid://u2qcjsm1xetx" path="res://Logic/Goal/GoalZone.tscn" id="6_i3s3v"]
-[ext_resource type="Texture2D" uid="uid://hr3n5xx31p3" path="res://Art/Health bar/Score.png" id="7_hvmqk"]
+[ext_resource type="Texture2D" uid="uid://dpg1clylmt7av" path="res://Art/Health bar/Score.png" id="7_hvmqk"]
 [ext_resource type="PackedScene" uid="uid://ddrw0qnmiq7nk" path="res://UI/HealthBar.tscn" id="7_wseut"]
 
 [sub_resource type="Environment" id="Environment_styi5"]
