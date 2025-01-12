@@ -41,8 +41,8 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_vcg58")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_yammg"]
-size = Vector3(0.687744, 0.585876, 0.579041)
+[sub_resource type="SphereShape3D" id="SphereShape3D_bnisi"]
+radius = 0.451025
 
 [node name="Rock4" type="StaticBody3D"]
 script = ExtResource("1_xkb5m")
@@ -53,5 +53,5 @@ mesh = SubResource("ArrayMesh_anj6b")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.118408, -0.0504456, -0.0910034)
-shape = SubResource("BoxShape3D_yammg")
+transform = Transform3D(1.83874, 0, 0, 0, 1.36414, 0, 0, 0, 1.7487, -0.0251607, -0.0504456, -0.0352424)
+shape = SubResource("SphereShape3D_bnisi")
