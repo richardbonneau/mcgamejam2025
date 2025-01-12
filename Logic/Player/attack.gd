@@ -1,10 +1,10 @@
 extends Node3D
 
 @export var shooting_point:Node3D
-@export var orbit_radius = 2.0  # Distance from player
+@export var orbit_radius = 4.0  # Distance from player
 @export var torpedo_scene: PackedScene
 @export var fire_cooldown = 0.5  # seconds between shots
-@export var min_stick_threshold = 0.1  # Lower threshold for more precise control
+@export var min_stick_threshold = 0  # Lower threshold for more precise control
 
 var can_fire = true
 var cooldown_timer = 0.0
@@ -35,7 +35,7 @@ func _process(delta: float) -> void:
 	# Get input using the right stick
 	var stick_x = Input.get_axis("r_stick_left"+str(playerInstance.player_index), "r_stick_right"+str(playerInstance.player_index))
 	var stick_y = Input.get_axis("r_stick_up"+str(playerInstance.player_index), "r_stick_down"+str(playerInstance.player_index))
-	
+	print(stick_x, stick_y)
 	# Create input vector
 	var stick_input = Vector2(stick_x, -stick_y)  # Invert Y for correct orientation
 	
