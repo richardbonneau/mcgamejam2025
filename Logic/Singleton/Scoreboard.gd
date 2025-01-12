@@ -22,6 +22,7 @@ func initializeScoreboard():
 func compileScore(playerIndex: int, points: int):
 	players_score[playerIndex] += points;
 	if (players_score[playerIndex] >= MAX_SCORE):
-		game_over.emit(playerIndex)
+		get_tree().change_scene_to_file("res://Scenes/WinMenu.tscn")
+		#game_over.emit(playerIndex)
 	update_scoreboard.emit(players_score)
 	
