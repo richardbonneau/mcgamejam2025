@@ -1,6 +1,7 @@
 extends Node
 
-@onready var score_label:Label = $ScoreBoardLabel
+@onready var score_label_p1:Label = $Score1
+@onready var score_label_p2:Label = $Score2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -8,4 +9,5 @@ func _ready() -> void:
 
 
 func updateScoreboard(scores: Array):
-	score_label.text = str(scores[0]) + " : " + str(scores[1]);
+	score_label_p1.text = str(scores[0])
+	score_label_p2.text = str(scores[1])
