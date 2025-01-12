@@ -26,6 +26,7 @@ var initial_position
 
 func _ready():
 	Health.PlayerDied.connect(_player_died)
+	Health.PlayerBlinks.connect(_player_blinks)
 	initial_z = position.z
 	initial_position = position
 	
@@ -149,6 +150,16 @@ func _player_died(playerIndex: int):
 		hide() #Hides body from view
 		await get_tree().create_timer(respawn_time).timeout
 		_respawn()
+
+func _player_blinks(playerIndex: int):
+	if(playerIndex == player_index):
+		for i in range(5): # 5 blinks over 1 second
+			$GREENDSUBMARINE.hide()
+			$REDSUBMARINE.hide()
+			await get_tree().create_timer(0.1).timeout
+			$GREENDSUBMARINE.show()
+			$REDSUBMARINE.show()
+			await get_tree().create_timer(0.1).timeout
 
 func __spawn():
 	#Stops movement
