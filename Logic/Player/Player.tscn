@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://e0aagwsaio3w"]
+[gd_scene load_steps=19 format=3 uid="uid://e0aagwsaio3w"]
 
 [ext_resource type="Script" path="res://Logic/Player/player.gd" id="1_nef7y"]
 [ext_resource type="Script" path="res://Logic/Player/attack.gd" id="2_lkxpm"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://b0fe15k8xtk1" path="res://Art/NEW NEW SUBMARINE/GREENDSUBMARINE.glb" id="4_60754"]
 [ext_resource type="PackedScene" uid="uid://dno38mwv6snwp" path="res://Art/NEW NEW SUBMARINE/REDSUBMARINE.glb" id="4_hxnnp"]
 [ext_resource type="AudioStream" uid="uid://wwo4okdag4os" path="res://Audio/player_death.wav" id="6_dtsek"]
+[ext_resource type="AudioStream" uid="uid://x423uu2nv1y1" path="res://Audio/treasure-pickup.wav" id="7_yukwo"]
+[ext_resource type="AudioStream" uid="uid://dx34ect6dyhka" path="res://Audio/respawn.wav" id="8_pc0xv"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_dfuio"]
 
@@ -87,3 +89,9 @@ shape = SubResource("CapsuleShape3D_ai5ld")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_dtsek")
 volume_db = 10.92
+
+[node name="PickupTreasure" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_yukwo")
+
+[node name="Respawn" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_pc0xv")

@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://u2qcjsm1xetx" path="res://Logic/Goal/GoalZone.tscn" id="6_i3s3v"]
 [ext_resource type="Texture2D" uid="uid://b10waik2h23nw" path="res://Art/Health bar/Score.png" id="7_hvmqk"]
 [ext_resource type="PackedScene" uid="uid://ddrw0qnmiq7nk" path="res://UI/HealthBar.tscn" id="7_wseut"]
-[ext_resource type="AudioStream" uid="uid://cm561j5tr3vn7" path="res://Musics and sounds/In game.mp3" id="10_hf8qd"]
+[ext_resource type="AudioStream" uid="uid://cn5gcwpb7xpi6" path="res://Musics and sounds/Song in game222.mp3" id="10_13wr8"]
 
 [sub_resource type="Environment" id="Environment_styi5"]
 
@@ -19,11 +19,11 @@ size = Vector2(10, 10)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y1dvy"]
 render_priority = 0
 shader = ExtResource("4_klmji")
-shader_parameter/tint = Color(1, 1, 1, 0.529412)
+shader_parameter/tint = Color(0.560754, 0.730211, 1, 0.529412)
 shader_parameter/wave_speed = 3.0
 shader_parameter/wave_freq = 10.0
 shader_parameter/wave_width = 1.0
-shader_parameter/blur = -0.55
+shader_parameter/blur = 2.0
 
 [node name="Main" type="Node"]
 script = ExtResource("1_varub")
@@ -47,18 +47,17 @@ light_energy = 1.66
 
 [node name="UnderwaterEffect" type="MeshInstance3D" parent="Environement"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 36.3361)
-visible = false
 mesh = SubResource("PlaneMesh_kfbca")
 surface_material_override/0 = SubResource("ShaderMaterial_y1dvy")
 
 [node name="Players" type="Node" parent="."]
 
 [node name="Player_0" parent="Players" instance=ExtResource("4_iupam")]
-transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, -24.1581, 0, 0)
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, -25.4902, 0, 0)
 motion_mode = 1
 
 [node name="Player_1" parent="Players" instance=ExtResource("4_iupam")]
-transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 25.2217, 0, 0)
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 27.7163, 0, 0)
 motion_mode = 1
 player_index = 1
 
@@ -159,11 +158,11 @@ bar_color = Color(1, 0, 0.2, 1)
 [node name="GoalZones" type="Node" parent="."]
 
 [node name="GoalZone" parent="GoalZones" instance=ExtResource("6_i3s3v")]
-transform = Transform3D(6, 0, 0, 0, 3, 0, 0, 0, 3.5, -21.534, 0, 0)
+transform = Transform3D(6, 0, 0, 0, 3, 0, 0, 0, 3.5, -33.534, 0, 1)
 visible = false
 
 [node name="GoalZone2" parent="GoalZones" instance=ExtResource("6_i3s3v")]
-transform = Transform3D(6, 0, 0, 0, 3, 0, 0, 0, 3.5, 23.2651, 0, 0)
+transform = Transform3D(6, 0, 0, 0, 3, 0, 0, 0, 3.5, 36.2651, 0, 1)
 visible = false
 player_index = 1
 
@@ -171,6 +170,5 @@ player_index = 1
 wait_time = 180.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("10_hf8qd")
-volume_db = 12.0
+stream = ExtResource("10_13wr8")
 autoplay = true

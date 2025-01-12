@@ -187,6 +187,7 @@ func __spawn():
 	
 
 func _respawn():
+	$Respawn.play()
 	__spawn()
 	show()
 	dead = false
@@ -221,6 +222,7 @@ func look_at_movement_point():
 			look_at(look_target, Vector3.UP)
 
 func pickup_treasure(item: Treasure):
+	$PickupTreasure.play()
 	if dead: return false
 	var weight: float = item.weight
 	for treasure in cargo:
