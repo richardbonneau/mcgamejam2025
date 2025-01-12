@@ -1,7 +1,7 @@
 extends Node
 
-@onready var score_label_p1:Label = $Score1
-@onready var score_label_p2:Label = $Score2
+@onready var score_label_p1:Label = $Control/Score1
+@onready var score_label_p2:Label = $Control/Score2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
