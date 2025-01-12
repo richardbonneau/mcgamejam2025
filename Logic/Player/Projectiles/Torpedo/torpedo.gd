@@ -69,8 +69,11 @@ func _physics_process(delta):
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body is LevelCollision: explode()
-	elif body is Crate: explode()
 	elif body is Player and body.player_index != player_id: explode()
+	elif body is Crate: 
+		explode()
+		body.hit()
+		
 
 func explode():
 	$Explosion.play()

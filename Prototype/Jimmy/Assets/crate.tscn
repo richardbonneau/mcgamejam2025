@@ -256,12 +256,12 @@ script = ExtResource("1_8f4v6")
 
 [node name="CrateFull" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.111497, -0.000271676, 0.00678307, -0.000969435, -6.07673e-05, 0.781338, -0.000845452, -0.0357585, -0.00137933, 0.0311618, -0.133552, 0)
-visible = false
 mesh = SubResource("ArrayMesh_3epru")
 skeleton = NodePath("")
 
 [node name="BrokenCrate" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.111497, -0.000271676, 0.00678307, -0.000969435, -6.07673e-05, 0.781338, -0.000845452, -0.0357585, -0.00137933, 0, 0, 0)
+visible = false
 mesh = SubResource("ArrayMesh_kdtnk")
 skeleton = NodePath("")
 
