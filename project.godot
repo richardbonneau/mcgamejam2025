@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="mcgamejam2025"
-run/main_scene="res://Logic/Main/Main.tscn"
+run/main_scene="res://Scenes/MainMenu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 boot_splash/image="res://Art/SplashScreen/treashpanda.png"
 config/icon="res://icon.svg"
