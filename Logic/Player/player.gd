@@ -207,6 +207,9 @@ func pickup_treasure(item: Treasure):
 	return true
 	
 func unload_cargo():
-	while(cargo.size() > 0):
+	if cargo.size() > 0:
+		print("unloading cargo")
 		var item = cargo.pop_back()
 		Scoreboard.player_scored.emit(player_index, item.worth)
+		return true
+	else: return false

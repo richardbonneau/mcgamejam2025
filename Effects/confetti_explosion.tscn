@@ -1,0 +1,68 @@
+[gd_scene load_steps=11 format=3 uid="uid://dpn151wu4wn3u"]
+func _on_area_3d_area_entered(area: Area3D) -> void:
+    if area.get_parent() is Player:
+        var player_hit = area.get_parent() as Player
+        if player_index == player_hit.player_index && !player_hit.dead:
+            if player_hit.unload_cargo():
+                var confetti = confetti_packed_scene.instantiate()
+                get_tree().root.add_child(confetti)
+                confetti.global_position = player_hit.global_position
+[ext_resource type="Script" path="res://Effects/confetti_explosion.gd" id="1_xxxxx"]
+
+[sub_resource type="Gradient" id="Gradient_xxxxx"]
+offsets = PackedFloat32Array(0, 0, 0, 1)
+colors = PackedColorArray(1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_gyow8"]
+gradient = SubResource("Gradient_xxxxx")
+
+[sub_resource type="Curve" id="Curve_xxxxx"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_1yi0q"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_usmdp"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_2lgiw"]
+curve_x = SubResource("Curve_xxxxx")
+curve_y = SubResource("Curve_1yi0q")
+curve_z = SubResource("Curve_usmdp")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xxxxx"]
+emission_shape = 1
+emission_sphere_radius = 0.2
+direction = Vector3(0, 1, 0)
+spread = 180.0
+initial_velocity_min = 3.0
+initial_velocity_max = 5.0
+gravity = Vector3(0, -2, 0)
+scale_min = 0.5
+scale_max = 1.5
+scale_curve = SubResource("CurveXYZTexture_2lgiw")
+color_ramp = SubResource("GradientTexture1D_gyow8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rnrnb"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_xxxxx"]
+material = SubResource("StandardMaterial3D_rnrnb")
+size = Vector2(0.1, 0.1)
+
+[node name="ConfettiExplosion" type="Node3D"]
+script = ExtResource("1_xxxxx")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 200
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_xxxxx")
+draw_pass_1 = SubResource("QuadMesh_xxxxx")
