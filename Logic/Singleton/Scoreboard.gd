@@ -8,6 +8,8 @@ signal update_scoreboard(scores: Array)
 @export var MAX_SCORE = 3;
 var players_score = [0, 0]
 
+var __winner:int
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	initializeScoreboard();
@@ -22,6 +24,8 @@ func initializeScoreboard():
 func compileScore(playerIndex: int, points: int):
 	players_score[playerIndex] += points;
 	if (players_score[playerIndex] >= MAX_SCORE):
-		game_over.emit(playerIndex)
+		__winner = playerIndex
+		get_tree().change_scene_to_file("res://Scenes/WinMenu.tscn")
+		return
 	update_scoreboard.emit(players_score)
 	

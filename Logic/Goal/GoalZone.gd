@@ -1,14 +1,15 @@
 extends Node
 
-@export var player_index:int;
+@onready var confetti_packed_scene = preload("res://Effects/confetti_explosion.tscn")
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+@export var player_index:int;
 
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.get_parent() is Player:
 		var player_hit = area.get_parent() as Player
 		if player_index == player_hit.player_index && !player_hit.dead:
-			player_hit.unload_cargo()
+			if player_hit.unload_cargo():
+				var confetti = confetti_packed_scene.instantiate()
+				add_child(confetti)
+				confetti.global_position = player_hit.global_position

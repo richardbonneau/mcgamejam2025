@@ -18,7 +18,7 @@ var orbit_angle = 0.0
 var dead: bool = false
 
 var cargo: Array = []
-@export var max_weight: float = 30.0
+@export var max_weight: float = 10.0
 
 @export var respawn_time = 3.0
 
@@ -207,6 +207,9 @@ func pickup_treasure(item: Treasure):
 	return true
 	
 func unload_cargo():
-	while(cargo.size() > 0):
+	if cargo.size() > 0:
+		print("unloading cargo")
 		var item = cargo.pop_back()
 		Scoreboard.player_scored.emit(player_index, item.worth)
+		return true
+	else: return false
