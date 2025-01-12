@@ -166,11 +166,13 @@ func _player_died(playerIndex: int):
 func _player_blinks(playerIndex: int):
 	if(playerIndex == player_index):
 		for i in range(5): # 5 blinks over 1 second
-			$GREENDSUBMARINE.hide()
-			$REDSUBMARINE.hide()
+			if player_index % 2 == 0: $GREENDSUBMARINE.hide()
+			else: $REDSUBMARINE.hide()
+
 			await get_tree().create_timer(0.1).timeout
-			$GREENDSUBMARINE.show()
-			$REDSUBMARINE.show()
+			if player_index % 2 == 0: $GREENDSUBMARINE.show()
+			else: $REDSUBMARINE.show()
+
 			await get_tree().create_timer(0.1).timeout
 
 func __spawn():
