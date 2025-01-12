@@ -187,6 +187,7 @@ func __spawn():
 	
 
 func _respawn():
+	$Respawn.play()
 	__spawn()
 	show()
 	dead = false
