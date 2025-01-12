@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://du4gvcen1qj6b"
+path="res://.godot/imported/Score.mp3-6f0d4294f6ede3bdad566c3390d1846c.mp3str"
+
+[deps]
+
+source_file="res://Musics and sounds/Score.mp3"
+dest_files=["res://.godot/imported/Score.mp3-6f0d4294f6ede3bdad566c3390d1846c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

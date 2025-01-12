@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bom1nxiu5wj7l"
+path="res://.godot/imported/Crate destroy sound.wav-ee493a822fbc5829f61e3881681178d6.sample"
+
+[deps]
+
+source_file="res://Musics and sounds/Crate destroy sound.wav"
+dest_files=["res://.godot/imported/Crate destroy sound.wav-ee493a822fbc5829f61e3881681178d6.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
