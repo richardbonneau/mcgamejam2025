@@ -29,14 +29,14 @@ shader_parameter/blur = -0.55
 script = ExtResource("1_varub")
 
 [node name="Map" parent="." instance=ExtResource("2_lcgg2")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(-5.24537e-08, 0, -1.5, 0, 1.2, 0, 1.2, 0, -6.55671e-08, 0, 0, 0)
 
 [node name="TreasureSpawner" parent="." instance=ExtResource("3_gahmb")]
 
 [node name="Environement" type="Node" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="Environement"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 36.7279)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 36.728)
 environment = SubResource("Environment_styi5")
 current = true
 size = 29.828
@@ -128,21 +128,31 @@ vertical_alignment = 1
 
 [node name="HealthBar" parent="UI" instance=ExtResource("7_wseut")]
 layout_mode = 1
-anchors_preset = 0
+anchors_preset = 2
 anchor_left = 0.0
+anchor_top = 1.0
 anchor_right = 0.0
-offset_left = 180.0
-offset_right = 180.0
+anchor_bottom = 1.0
+offset_left = 238.0
+offset_top = -71.0
+offset_right = 238.0
+offset_bottom = -71.0
 grow_horizontal = 1
+grow_vertical = 0
 
 [node name="HealthBar2" parent="UI" instance=ExtResource("7_wseut")]
 layout_mode = 1
-anchors_preset = 1
+anchors_preset = 3
 anchor_left = 1.0
+anchor_top = 1.0
 anchor_right = 1.0
-offset_left = -180.0
-offset_right = -180.0
+anchor_bottom = 1.0
+offset_left = -216.0
+offset_top = -71.0
+offset_right = -216.0
+offset_bottom = -71.0
 grow_horizontal = 0
+grow_vertical = 0
 player_index = 1
 bar_color = Color(1, 0, 0.2, 1)
 
