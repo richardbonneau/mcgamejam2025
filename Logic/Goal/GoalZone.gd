@@ -11,5 +11,5 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 		if player_index == player_hit.player_index && !player_hit.dead:
 			if player_hit.unload_cargo():
 				var confetti = confetti_packed_scene.instantiate()
-				add_child(confetti)
+				get_tree().root.add_child(confetti)
 				confetti.global_position = player_hit.global_position

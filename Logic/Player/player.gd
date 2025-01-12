@@ -1,6 +1,8 @@
 extends CharacterBody3D
 class_name Player
 
+@onready var explosion_packed_scene = preload("res://Logic/Player/Projectiles/Torpedo/explosion.tscn")
+
 @export var player_index:int = 0
 
 @export var movement_point:Node3D
@@ -141,6 +143,14 @@ func _player_died(playerIndex: int):
 	if (playerIndex == player_index):
 		dead = true
 		print("Player "+str(player_index)+" has died.")
+		
+		var explosion = explosion_packed_scene.instantiate()
+		get_tree().root.add_child(explosion)
+		explosion.global_position = global_position
+		var other_player
+		if player_index == 0: other_player = 1
+		else: other_player = 0
+		explosion.start_explosion(other_player)
 		#Send the player outside the playable area
 		position.x = 999
 		position.y = 999
@@ -150,6 +160,7 @@ func _player_died(playerIndex: int):
 		hide() #Hides body from view
 		await get_tree().create_timer(respawn_time).timeout
 		_respawn()
+		
 
 func _player_blinks(playerIndex: int):
 	if(playerIndex == player_index):
