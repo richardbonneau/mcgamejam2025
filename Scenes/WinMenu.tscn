@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cprjw2ijpg0b7"]
 
 [ext_resource type="Script" path="res://Logic/UI/WinMenu.gd" id="1_8sitf"]
-[ext_resource type="Texture2D" uid="uid://l54vuxhpwh80" path="res://Scenes/Photo menu.png" id="2_7qqhe"]
+[ext_resource type="Texture2D" uid="uid://bvyyy6kffwgk7" path="res://Scenes/PHOTOMENUFINAL.png" id="2_mfe4x"]
 
 [node name="WinMenu" type="MarginContainer"]
 anchors_preset = 15
@@ -17,7 +17,7 @@ script = ExtResource("1_8sitf")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2
-texture = ExtResource("2_7qqhe")
+texture = ExtResource("2_mfe4x")
 
 [node name="WinnerLabel" type="Label" parent="."]
 layout_mode = 2
