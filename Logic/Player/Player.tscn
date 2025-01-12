@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Logic/Player/player.gd" id="1_nef7y"]
 [ext_resource type="Script" path="res://Logic/Player/attack.gd" id="2_lkxpm"]
 [ext_resource type="PackedScene" uid="uid://dtaqicoopkopf" path="res://Logic/Player/Projectiles/Torpedo/Torpedo.tscn" id="3_4lfv1"]
-[ext_resource type="PackedScene" uid="uid://dbkrm4gcsl4p1" path="res://Art/NEW NEW SUBMARINE/GREENDSUBMARINE.glb" id="4_60754"]
+[ext_resource type="PackedScene" uid="uid://b0fe15k8xtk1" path="res://Art/NEW NEW SUBMARINE/GREENDSUBMARINE.glb" id="4_60754"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_dfuio"]
 

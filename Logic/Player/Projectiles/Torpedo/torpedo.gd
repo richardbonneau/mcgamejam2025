@@ -42,5 +42,5 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 		var player_hit = area.get_parent() as Player
 		if player_hit.dead: return #Don't register collision with dead players
 		if player_hit.player_index == player_id: return
-		Health.TakeDamage.emit(player_hit.player_index, 15)
+		Health.TakeDamage.emit(player_hit.player_index, 50)
 	queue_free()
