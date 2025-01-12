@@ -54,9 +54,10 @@ script = ExtResource("1_xxxxx")
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 emitting = false
-amount = 200
+amount = 500
 lifetime = 2.0
 one_shot = true
+speed_scale = 2.0
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_xxxxx")
 draw_pass_1 = SubResource("QuadMesh_xxxxx")
