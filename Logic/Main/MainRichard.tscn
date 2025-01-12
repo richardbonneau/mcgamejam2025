@@ -1,0 +1,70 @@
+[gd_scene load_steps=8 format=3 uid="uid://hu07x68ue2w"]
+
+[ext_resource type="Script" path="res://Logic/Input/InputManager.gd" id="1_varub"]
+[ext_resource type="PackedScene" uid="uid://chxxemsbwng6f" path="res://Prototype/Jimmy/Map.tscn" id="2_lcgg2"]
+[ext_resource type="PackedScene" uid="uid://lerb8ge4j60o" path="res://Logic/Treasure/Spawner/TreasureSpawner.tscn" id="3_gahmb"]
+[ext_resource type="PackedScene" uid="uid://e0aagwsaio3w" path="res://Logic/Player/Player.tscn" id="4_iupam"]
+[ext_resource type="Script" path="res://Logic/UI/UIManager.gd" id="5_wlew8"]
+[ext_resource type="PackedScene" uid="uid://u2qcjsm1xetx" path="res://Logic/Goal/GoalZone.tscn" id="6_i3s3v"]
+
+[sub_resource type="Environment" id="Environment_styi5"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_varub")
+
+[node name="Map" parent="." instance=ExtResource("2_lcgg2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="TreasureSpawner" parent="." instance=ExtResource("3_gahmb")]
+
+[node name="Environement" type="Node" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="Environement"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 36.7279)
+environment = SubResource("Environment_styi5")
+current = true
+size = 29.828
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environement"]
+
+[node name="Players" type="Node" parent="."]
+
+[node name="Player_0" parent="Players" instance=ExtResource("4_iupam")]
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 1, 0, 0)
+motion_mode = 1
+
+[node name="Player_1" parent="Players" instance=ExtResource("4_iupam")]
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 1, 0, 0)
+motion_mode = 1
+player_index = 1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_wlew8")
+
+[node name="ScoreBoardLabel" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -321.5
+offset_right = 321.5
+offset_bottom = 57.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "0 - 0"
+horizontal_alignment = 1
+
+[node name="GoalZones" type="Node" parent="."]
+
+[node name="GoalZone" parent="GoalZones" instance=ExtResource("6_i3s3v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 0)
+
+[node name="GoalZone2" parent="GoalZones" instance=ExtResource("6_i3s3v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 0)
+player_index = 1
