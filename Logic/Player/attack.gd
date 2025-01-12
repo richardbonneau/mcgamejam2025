@@ -49,7 +49,7 @@ func _process(delta: float) -> void:
 		aim_line.visible = false
 	
 	# Check if R2 is pressed and we can fire
-	if (!playerInstance.dead) and Input.is_action_pressed("r2"+str(playerInstance.player_index)) and can_fire and stick_input.length() > min_stick_threshold:
+	if (!playerInstance.dead)  and can_fire and stick_input.length() > min_stick_threshold:
 		# Calculate direction from player to shooting point
 		var shoot_dir = (shooting_point.global_position - global_position)
 		shoot_dir.z = 0  # Ensure we're in 2D plane
