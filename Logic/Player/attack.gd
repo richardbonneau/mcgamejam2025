@@ -47,7 +47,7 @@ func _process(delta: float) -> void:
 	var raw_stick_input = Vector2(raw_x, -raw_y)
 
 	# Don't process input if raw input is too small
-	if raw_stick_input.length() < 0.05:
+	if raw_stick_input.length() < 0.1:
 		aim_line.visible = false
 		return
 

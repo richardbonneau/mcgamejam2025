@@ -11,11 +11,16 @@ class_name Player
 @export var acceleration = 100.0  # How quickly to reach max speed
 @export var drag_factor = 0.92  # Underwater drag (lower = more drag)
 @export var rotation_speed = 3.0  # Speed of rotation (in radians per second)
+@export var smoothing_factor = 0.1  # How quickly to smooth movement input
 
 # Store initial Z position
 var initial_z = 0.0
 var target_rotation = -PI/2  # -PI/2 for right, PI/2 for left
 var orbit_angle = 0.0
+var smoothed_stick_input := Vector2.ZERO
+
+const JOY_AXIS_0 = 0  # Left stick X
+const JOY_AXIS_1 = 1  # Left stick Y
 
 var dead: bool = false
 
@@ -60,19 +65,28 @@ func _physics_process(delta):
 	
 	update_movement_point_position(Vector2.RIGHT)
 	
-	# Get input direction from gamepad
-	var input_dir = Vector3.ZERO
-	input_dir.x = Input.get_axis("l_stick_left" + str(player_index), "l_stick_right" + str(player_index))
-	input_dir.y = Input.get_axis("l_stick_up"   + str(player_index), "l_stick_down"  + str(player_index))
+	# Get raw input from gamepad
+	var raw_x = Input.get_joy_axis(player_index, JOY_AXIS_0)
+	var raw_y = Input.get_joy_axis(player_index, JOY_AXIS_1)
 	
-	# Convert to 2D, inverting Y if needed
-	var stick_input = Vector2(input_dir.x, -input_dir.y)
+	# Convert to Vector2 and invert Y for proper orientation
+	var raw_stick_input = Vector2(raw_x, -raw_y)
 	
-	if stick_input.length() > 0.1:
-		# Move the 'movement_point' in front of sub
-		update_movement_point_position(stick_input.normalized())
+	# Don't process input if raw input is too small
+	if raw_stick_input.length() < 0.1:
+		velocity *= drag_factor
+		velocity.z = 0
+		move_and_slide()
+		return
 		
-		# (Optional) Make submarine look at movement point
+	# Apply smoothing
+	smoothed_stick_input = lerp(smoothed_stick_input, raw_stick_input, smoothing_factor)
+	
+	if smoothed_stick_input.length() > 0.1:
+		# Move the 'movement_point' in front of sub
+		update_movement_point_position(smoothed_stick_input.normalized())
+		
+		# Make submarine look at movement point
 		look_at_movement_point()
 		
 		# Move towards the movement point
@@ -83,9 +97,9 @@ func _physics_process(delta):
 		velocity.x += dir_to_point.x * acceleration * delta
 		velocity.y += dir_to_point.y * acceleration * delta
 		
-		# Also add direct input acceleration
-		velocity.x += input_dir.x * acceleration * delta
-		velocity.y -= input_dir.y * acceleration * delta  # minus sign if you want to invert Y
+		# Also add smoothed input acceleration
+		velocity.x += smoothed_stick_input.x * acceleration * delta
+		velocity.y += smoothed_stick_input.y * acceleration * delta
 		
 		# Clamp speed
 		var current_vel_2d = Vector2(velocity.x, velocity.y)
@@ -93,26 +107,15 @@ func _physics_process(delta):
 			current_vel_2d = current_vel_2d.normalized() * speed
 			velocity.x = current_vel_2d.x
 			velocity.y = current_vel_2d.y
-		
-		# Underwater drag
-		velocity.x *= drag_factor
-		velocity.y *= drag_factor
-		velocity.z = 0
-		
-		# Decide orientation based on velocity direction
-		if velocity.length() > 0.1:
-			var vel_2d = Vector2(velocity.x, velocity.y)
-			var target_rot = get_target_orientation(vel_2d)
-			
-			rotation.x = smooth_angle(rotation.x, target_rot.x, rotation_speed, delta)
-			rotation.y = smooth_angle(rotation.y, target_rot.y, rotation_speed, delta)
-			rotation.z = 0
-		
-		# Actually move
-		move_and_slide()
-		
-		# Lock Z position
-		position.z = initial_z
+	
+	# Underwater drag
+	velocity *= drag_factor
+	velocity.z = 0
+	
+	move_and_slide()
+	
+	# Lock Z position
+	position.z = initial_z
 
 
 func get_target_orientation(velocity_2d: Vector2) -> Vector3:
