@@ -2,6 +2,9 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$Timer.connect("timeout", Scoreboard.endGame)
+	$Timer.start()
+	$UI/TimerLabel.text = str(floor($Timer.get_time_left()))
 	var players: Node = $Players
 	var i = 0
 	for player in players.get_children():
@@ -10,6 +13,9 @@ func _ready() -> void:
 			if not base_action.ends_with(str(i)):
 				_duplicate_action(base_action, i)
 		i += 1
+
+func _process(delta:float) -> void:
+	$UI/TimerLabel.text = str(floor($Timer.get_time_left()))
 
 func _duplicate_action(base_action: String, controllerIndex:int):
 	var new_action = base_action + str(controllerIndex)

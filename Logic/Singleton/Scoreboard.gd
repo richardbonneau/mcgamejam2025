@@ -23,9 +23,18 @@ func initializeScoreboard():
 	
 func compileScore(playerIndex: int, points: int):
 	players_score[playerIndex] += points;
-	if (players_score[playerIndex] >= MAX_SCORE):
-		__winner = playerIndex
-		get_tree().change_scene_to_file("res://Scenes/WinMenu.tscn")
-		return
+	#if (players_score[playerIndex] >= MAX_SCORE):
+	#	__winner = playerIndex
+	#	get_tree().change_scene_to_file("res://Scenes/WinMenu.tscn")
+	#	return
 	update_scoreboard.emit(players_score)
 	
+func endGame():
+	if players_score[0] > players_score[1]:
+		__winner = 0
+	elif players_score[0] < players_score[1]:
+		__winner = 1
+	else:
+		__winner = -1
+	get_tree().change_scene_to_file("res://Scenes/WinMenu.tscn")
+		

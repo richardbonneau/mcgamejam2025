@@ -2,8 +2,11 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var winner = "Green" if Scoreboard.__winner == 0 else "Red"
-	$WinnerLabel.text = winner+" player has won the game!"
+	if (Scoreboard.__winner == -1):
+		$WinnerLabel.text = "Tie!"
+	else:
+		var winner = "Green" if Scoreboard.__winner == 0 else "Red"
+		$WinnerLabel.text = winner+" player has won the game!"
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
