@@ -1,14 +1,14 @@
 extends Node
 
 var treasure_spawn_points :Array = [
-	{"x":15, "y":-15, "node": null},
-	{"x":10, "y":-10, "node": null},
+	{"x":20, "y":-17, "node": null},
+	{"x":15, "y":-10, "node": null},
 	{"x":-10, "y":10, "node": null},
 	{"x":-15, "y":15, "node": null},
-	#{"x":1, "y":-17.75, "node": null},
-	{"x":1, "y":19.5, "node": null},
-	{"x":-20, "y":-15, "node": null},
-	{"x":20, "y":19, "node": null},
+	#{"x":20, "y":7, "node": null},
+	{"x":1, "y":22, "node": null},
+	{"x":-17, "y":-15, "node": null},
+	{"x":20, "y":14, "node": null},
 	{"x":-6, "y":-7, "node": null},
 	{"x":5, "y":12, "node": null}
 ]
