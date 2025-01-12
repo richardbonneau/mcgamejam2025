@@ -14,7 +14,7 @@ theme_override_constants/margin_right = 120
 theme_override_constants/margin_bottom = 80
 script = ExtResource("1_8sitf")
 
-[node name="Label" type="Label" parent="."]
+[node name="WinnerLabel" type="Label" parent="."]
 layout_mode = 2
 text = "YEEEEEEET"
 horizontal_alignment = 1
